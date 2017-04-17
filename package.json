@@ -1,0 +1,21 @@
+{
+  "name": "FeedForwardAdmin",
+  "version": "1.0.0",
+  "description": "FeedForward Admin Console",
+  "scripts": {
+    "test": "echo Test your code by opening http://localhost:3000 in your browser.",
+    "jshint": "./node_modules/.bin/jshint --config .jshintrc --exclude=node_modules,test . || exit 0"
+  },
+  "author": "Matthew Sun",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.9 <1.6",
+    "angular-animate": "^1.4.9 <1.6",
+    "angular-aria": "^1.4.9 <1.6",
+    "angular-material": "^1.0.4",
+    "angular-resource": "^1.4.9 < 1.6",
+    "angular-route": "^1.4.9 <1.6",
+    "angularfire": "^2.3.0",
+    "jshint": "^2.9.1-rc2"
+  }
+}

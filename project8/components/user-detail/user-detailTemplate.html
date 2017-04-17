@@ -1,0 +1,37 @@
+<h1 class="md-display-3">
+  {{user.first_name}} {{user.last_name}}
+</h1>
+
+<h2 class="md-headline"> Description </h2>
+<p class="md-body-1"> {{user.description}} </p>
+
+<h2 class="md-headline"> Location </h2>
+<p class="md-body-1"> {{user.location}} </p>
+
+<h2 class="md-headline"> Occupation </h2>
+<p class="md-body-1"> {{user.occupation}} </p>
+
+<h2 class="md-headline"> Most Recent Photo </h2>
+<div flex-xs layout="row" layout-wrap>
+<md-card flex="33">
+	<img ng-src="images/{{mostRecentPhoto.file_name}}" ng-click="go('/photos/'+mostRecentPhoto.user_id+'/'+mostRecentPhoto._id)">
+	<md-card-title>
+      <md-card-title-text>
+				<span class="md-headline">{{mostRecentPhoto.date_time}}</span>
+      </md-card-title-text>
+    </md-card-title>
+</md-card>
+</div>
+
+<h2 class="md-headline"> Photo with Most Comments </h2>
+<div flex-xs layout="row" layout-wrap>
+<md-card flex="33">
+	<img ng-src="images/{{mostCommentsPhoto.file_name}}" ng-click="go('/photos/'+mostCommentsPhoto.user_id+'/'+mostCommentsPhoto._id)">
+	<md-card-title>
+      <md-card-title-text>
+				<span class="md-headline"># of Comments: {{mostCommentsPhoto.comments}}</span>
+      </md-card-title-text>
+    </md-card-title>
+</md-card>
+</div>
+<md-button class="md-raised md-primary" ng-href="#/photos/{{user._id}}">View Photos</md-button>

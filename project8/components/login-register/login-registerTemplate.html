@@ -1,0 +1,76 @@
+<h1 class="md-display-3">Login</h1>
+
+<md-content layout-padding>
+    <div>
+      <form>
+				<div layout-gt-xs="row">
+					<md-input-container class="md-block">
+						<label>Login Name</label>
+						<input required ng-model="loginName">
+					</md-input-container>
+
+					<md-input-container class="md-block">
+						<label>Password</label>
+						<input type="password" required ng-model="password">
+					</md-input-container>
+				</div>
+				<div>
+        	<md-button class="md-raised md-primary" ng-click="login()" type="submit">Submit</md-button>
+      	</div>
+				
+			</form>
+	</div>
+</md-content>
+
+<h1 class="md-display-3">Register</h1>
+<md-content layout-padding>
+    <div>
+      <form name="registerForm">
+				<div layout-gt-xs="row">
+					<md-input-container class="md-block">
+						<label>First Name</label>
+						<input required ng-model="register.first_name">
+					</md-input-container>
+
+					<md-input-container class="md-block">
+						<label>Last Name</label>
+						<input required ng-model="register.last_name">
+					</md-input-container>
+				</div>
+				
+				<div layout-gt-xs="row">
+					<md-input-container class="md-block">
+						<label>Location</label>
+						<input ng-model="register.location">
+					</md-input-container>
+
+					<md-input-container class="md-block">
+						<label>Occupation</label>
+						<input ng-model="register.occupation">
+					</md-input-container>
+				</div>
+				
+				<md-input-container class="md-block">
+          <label>Description</label>
+          <textarea ng-model="register.description" md-maxlength="150" rows="3" md-select-on-focus></textarea>
+        </md-input-container>
+				
+        <md-input-container class="md-block">
+          <label>Login Name</label>
+          <input required ng-model="register.login_name">
+        </md-input-container>
+				
+				<md-input-container class="md-block">
+          <label>Password</label>
+          <input type="password" required ng-model="register.password">
+        </md-input-container>
+				
+				<p>{{registerMessage}}</p>
+				
+				<div>
+        	<md-button class="md-raised md-primary" ng-click="registerUser()" type="submit">Submit</md-button>
+      	</div>
+				
+			</form>
+	</div>
+</md-content>

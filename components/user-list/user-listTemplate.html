@@ -1,0 +1,32 @@
+<md-content>
+	<md-list flex>
+		<md-list-item>
+			<div class="md-list-item-text">
+				<md-button class="md-raised md-primary" ng-show="main.loggedIn" ng-href="#/favorites" aria-label="Favorites">Favorites</md-button>
+			</div>
+		</md-list-item>
+		<span flex></span>
+		<div ng-repeat="user in userList">
+			<md-list-item class="md-1-line">
+				<div class="md-list-item-text">
+					<md-button ng-href="#/users/{{user._id}}">{{ user.first_name }} {{ user.last_name }}</md-button>
+					<!--<p><a ng-href="#/users/{{user._id}}">{{ user.first_name }} {{ user.last_name }}</a></p>-->
+				</div>
+				<span flex></span>
+				<md-chips ng-if="main.advanced" class="noshadow">
+					<md-chip class="green" ng-click="">{{user.photoCount}}</md-chip>
+					<md-chip class="clickable red" ng-click="go('/comments/'+user._id)">{{user.numComments}}</md-chip>
+				</md-chips>
+			</md-list-item>
+			<md-list-item class="md-1-line">
+				<div class="md-list-item-text">
+					<p>{{user.first_name}}'s most recent activity: {{user.most_recent_action}}</p>
+					<md-card ng-show="user.most_recent_action==='uploaded photo'" flex="33">
+						<img ng-src="getMostRecentPhoto(user._id)">
+					</md-card>
+				</div>
+
+			</md-list-item>
+		</div>
+	</md-list>
+</md-content>

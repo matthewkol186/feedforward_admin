@@ -1,0 +1,21 @@
+md-chips .md-chips {
+	box-shadow: 0 0 0;
+}
+
+md-chip.clickable {
+	cursor: pointer;
+}
+
+md-chip.red:focus, md-chip.green:focus {
+	outline:none;
+}
+
+md-chip.red {
+	background: rgb(214, 81, 81);
+	color: white;
+}
+
+md-chip.green {
+	background: rgb(121, 214, 81);
+	color: white;
+}
