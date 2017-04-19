@@ -1,0 +1,50 @@
+<div layout="column" class="md-inline-form" flex>
+	<md-content layout-padding flex>
+		<h2>Create New Survey</h2>
+		<div>
+			<form name="userForm">
+
+				<div layout-gt-xs="row">
+					<md-input-container class="md-block" flex-gt-xs>
+						<label>Title</label>
+						<input ng-model="survey.name">
+					</md-input-container>
+
+					<!--<md-input-container>
+						<label>Enter date</label>
+						<md-datepicker ng-model="user.submissionDate"></md-datepicker>
+					</md-input-container>-->
+				</div>
+
+				<div layout-gt-sm="column" ng-repeat="question in survey.questions track by $index">
+					<h5>QUESTION {{$index+1}}</h5>
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Enter question</label>
+						<input ng-model="question.question">
+					</md-input-container>
+
+					<md-list>
+						<md-list-item class="md-1-line" style="padding-left:30px" ng-repeat="answer in question.answerOptions track by $index">
+							<md-input-container class="md-block" flex-gt-sm>
+								<label>Option {{$index+1}}</label>
+								<input ng-model="answer.display">
+							</md-input-container>
+						</md-list-item>
+						<md-list-item class="md-1-line" style="padding-left:30px">
+							<md-button class="md-fab" ng-click="question.answerOptions.push({display:''})">
+								<md-icon md-menu-origin md-font-icon="add">add</md-icon>
+							</md-button>
+						</md-list-item>
+					</md-list>
+					
+				</div>
+				<md-button class="md-raised md-primary" ng-click="survey.questions.push({question: '', answerOptions: [{ display: '', refcount: 0, client_ids: []}, ], })">Add Question</md-button>
+				
+				<div layout="row" layout-sm="column" layout-align="end center">
+					<md-button class="md-raised md-primary" ng-click="submitSurvey()">Submit Survey</md-button>
+				</div>				
+
+			</form>
+		</div>
+	</md-content>
+</div>

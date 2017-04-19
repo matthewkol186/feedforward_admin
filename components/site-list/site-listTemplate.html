@@ -1,0 +1,14 @@
+<md-content layout-padding>
+	<h3 class="md-title">Filter Sites</h3>
+	<md-list flex>
+		<div ng-repeat="site in sites track by $index">
+			<md-list-item class="md-1-line">
+				<div class="md-list-item-text">
+					<md-checkbox ng-model="sitesToShow[$index]">
+						{{site.metadata.name}}
+					</md-checkbox>
+				</div>
+			</md-list-item>
+		</div>
+	</md-list>
+</md-content>

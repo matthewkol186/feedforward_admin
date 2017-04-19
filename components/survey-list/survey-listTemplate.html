@@ -1,0 +1,58 @@
+<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2" ng-if="main.loggedIn">
+	<md-content layout-padding>
+		<h3 class="md-title">Filter Sites</h3>
+		<md-list flex>
+			<div ng-repeat="site in sites track by $index">
+				<md-list-item class="md-1-line">
+					<div class="md-list-item-text">
+						<md-checkbox ng-model="sitesToShow[$index]">
+							{{site.metadata.name}}
+						</md-checkbox>
+					</div>
+				</md-list-item>
+			</div>
+		</md-list>
+	</md-content>
+</md-sidenav>
+
+<md-content layout-padding flex id="content">
+	<md-list flex>
+		<md-list-item class="md-1-line">
+			<div class="md-list-item-text" flex="40">
+				<h5>NAME</h5>
+			</div>
+			<div flex="30">
+				<h5>SITES</h5>
+			</div>
+			<div flex="20">
+				<h5>DATE CREATED</h5>
+			</div>
+			<div flex="10">
+				<h5>OPTIONS</h5>
+			</div>
+		</md-list-item>
+		<md-list-item class="md-1-line" ng-repeat="survey in surveys" ng-click="null">
+			<div class="md-list-item-text" flex="40">
+				{{survey.name}}
+			</div>
+			<div flex="30">
+				{{survey.instances.join(" ")}}
+			</div>
+			<div flex="20">
+				{{survey.date | date}}
+			</div>
+			<div flex="10">
+				<md-menu md-offset="0 -7">
+					<md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdMenu.open($event)">
+						<md-icon md-menu-origin md-font-icon="more_vert">more_vert</md-icon>
+					</md-button>
+					<md-menu-content width="2">
+						<md-menu-item ng-repeat="item in surveyOptions">
+							<md-button ng-click="announceClick($index, survey.id)"> <span md-menu-align-target></span> {{item}} </md-button>
+						</md-menu-item>
+					</md-menu-content>
+				</md-menu>
+			</div>
+		</md-list-item>
+	</md-list>
+</md-content>

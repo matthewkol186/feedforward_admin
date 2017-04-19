@@ -1,9 +1,0 @@
-<h1 class="md-display-3">Your Favorite Photos</h1>
-<div flex-xs layout="row" layout-wrap>
-	<md-card ng-repeat="photo in favorites" flex="33">
-		<img ng-click="showAdvanced($event, photo)" ng-src="images/{{photo.file_name}}" ng-click="">
-		<md-card-actions layout="row" layout-align="end center">
-			<md-button ng-click="unfavorite(photo)">Unfavorite</md-button>
-		</md-card-actions>
-	</md-card>
-</div>
