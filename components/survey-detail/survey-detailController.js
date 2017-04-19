@@ -1,29 +1,46 @@
 'use strict';
 
-app.controller('UserDetailController', ['$scope', '$routeParams', '$resource', '$location', 
-  function ($scope, $routeParams, $resource, $location) {
-    /*
-     * Since the route is specified as '/users/:userId' in $routeProvider config the
-     * $routeParams  should have the userId property set with the path from the URL.
-     */
-    var userId = $routeParams.userId;
-	  
-		var User = $resource('user/'+userId);
-		var MostRecentPhoto = $resource('mostRecentPhoto/'+userId);
-		var MostCommentsPhoto = $resource('photoMostComments/'+userId);
-		$scope.user = User.get(function(success){
-			$scope.main.title = $scope.user.first_name + " " + $scope.user.last_name;
-		});
-		
-		$scope.mostRecentPhoto = MostRecentPhoto.get(function(success) {
-			console.log(success);
-		});
-		
-		$scope.mostCommentsPhoto = MostCommentsPhoto.get(function(success) {
-			console.log(success);
-		});
-		
-		$scope.go = function(path) {
-			$location.path(path);
+app.controller('SurveyDetailController', ['$scope', '$resource', '$routeParams', '$location', 'Surveys', 'Sites',
+    function ($scope, $resource, $routeParams, $location, Surveys, Sites) {
+		$scope.main.title = 'Users';
+
+		$scope.surveyId = $routeParams.surveyId;
+
+		$scope.survey = Surveys.getSurveyById($scope.surveyId);
+		$scope.surveyInstances = Surveys.getSurveyInstances($scope.surveyId);
+		$scope.instancesToShow = Array($scope.surveyInstances.length).fill(true);
+
+		$scope.aggregateData = Surveys.getAggregateData($scope.surveyId, $scope.instancesToShow);
+		$scope.updateData = function() {
+			$scope.aggregateData = Surveys.getAggregateData($scope.surveyId, $scope.instancesToShow);
+		}
+
+		$scope.options = {
+			chart: {
+				type: 'pieChart',
+				height: 300,
+				x: function (d) {
+					return d.answer;
+				},
+				y: function (d) {
+					return d.count;
+				},
+				showLabels: true,
+				duration: 500,
+				labelThreshold: 0.01,
+				labelSunbeamLayout: true,
+				legend: {
+					margin: {
+						top: 5,
+						right: 35,
+						bottom: 5,
+						left: 0
+					}
+				}
+			}
 		};
+
+		$scope.getNameOfSite = function(site_id) {
+			return Sites.getNameOfSite(site_id);
+		}
 }]);

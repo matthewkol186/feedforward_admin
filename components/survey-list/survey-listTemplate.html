@@ -31,12 +31,12 @@
 				<h5>OPTIONS</h5>
 			</div>
 		</md-list-item>
-		<md-list-item class="md-1-line" ng-repeat="survey in surveys" ng-click="null">
+		<md-list-item class="md-1-line" ng-repeat="survey in surveys" ng-click="go(survey.id)" ng-show="matchesFilter(survey)">
 			<div class="md-list-item-text" flex="40">
 				{{survey.name}}
 			</div>
 			<div flex="30">
-				{{survey.instances.join(" ")}}
+				{{survey.siteList.join(", ")}}
 			</div>
 			<div flex="20">
 				{{survey.date | date}}

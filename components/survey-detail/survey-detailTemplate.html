@@ -1,37 +1,32 @@
-<h1 class="md-display-3">
-  {{user.first_name}} {{user.last_name}}
-</h1>
+<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2" ng-if="main.loggedIn">
+	<md-content layout-padding>
+		<h3 class="md-title">Filter Instances</h3>
+		<md-list flex>
+			<div ng-repeat="instance in surveyInstances track by $index">
+				<md-list-item class="md-1-line">
+					<div class="md-list-item-text">
+						<md-checkbox ng-model="instancesToShow[$index]" ng-change="updateData()">
+							{{getNameOfSite(instance.siteId)}} on {{instance.date | date}}
+						</md-checkbox>
+					</div>
+				</md-list-item>
+			</div>
+		</md-list>
+	</md-content>
+</md-sidenav>
 
-<h2 class="md-headline"> Description </h2>
-<p class="md-body-1"> {{user.description}} </p>
-
-<h2 class="md-headline"> Location </h2>
-<p class="md-body-1"> {{user.location}} </p>
-
-<h2 class="md-headline"> Occupation </h2>
-<p class="md-body-1"> {{user.occupation}} </p>
-
-<h2 class="md-headline"> Most Recent Photo </h2>
-<div flex-xs layout="row" layout-wrap>
-<md-card flex="33">
-	<img ng-src="images/{{mostRecentPhoto.file_name}}" ng-click="go('/photos/'+mostRecentPhoto.user_id+'/'+mostRecentPhoto._id)">
-	<md-card-title>
-      <md-card-title-text>
-				<span class="md-headline">{{mostRecentPhoto.date_time}}</span>
-      </md-card-title-text>
-    </md-card-title>
-</md-card>
-</div>
-
-<h2 class="md-headline"> Photo with Most Comments </h2>
-<div flex-xs layout="row" layout-wrap>
-<md-card flex="33">
-	<img ng-src="images/{{mostCommentsPhoto.file_name}}" ng-click="go('/photos/'+mostCommentsPhoto.user_id+'/'+mostCommentsPhoto._id)">
-	<md-card-title>
-      <md-card-title-text>
-				<span class="md-headline"># of Comments: {{mostCommentsPhoto.comments}}</span>
-      </md-card-title-text>
-    </md-card-title>
-</md-card>
-</div>
-<md-button class="md-raised md-primary" ng-href="#/photos/{{user._id}}">View Photos</md-button>
+<md-content layout-padding flex id="content">
+	<!--<md-list flex>
+		<md-list-item class="md-1-line" ng-repeat="survey in surveys" ng-click="null">
+			
+		</md-list-item>
+	</md-list>-->
+	<h1>{{survey.name}}</h1>
+	<div ng-repeat = "question in survey.questions track by $index">
+		<h3>{{question.question}}</h3>
+		<nvd3 options="options" data="aggregateData[$index]"></nvd3>
+		<div ng-repeat = "answerOption in question.answerOptions track by $index">
+			<p>{{answerOption.display}}: {{aggregateData[$parent.$index][$index].count}}</p>
+		</div>
+	</div>
+</md-content>

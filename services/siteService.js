@@ -5,7 +5,7 @@ app.factory('Sites', function () {
 		'1': {
 			id: '1',
 			metadata: {
-				name: 'Site 1',
+				name: 'Church',
 				languages: ['Spanish', 'Vietnamese'],
 				clients: [
 					{
@@ -22,12 +22,12 @@ app.factory('Sites', function () {
 						}
 					]
 			},
-			surveys: ['1', '2', '3', '4']
+			surveys: ['1']
 		},
 		'2': {
 			id: '2',
 			metadata: {
-				name: 'Site 2',
+				name: 'School',
 				languages: ['Chinese', 'Vietnamese'],
 				clients: [
 					{
@@ -44,7 +44,7 @@ app.factory('Sites', function () {
 						}
 					]
 			},
-			surveys: ['1', '4', '5']
+			surveys: ['2']
 		}
 	};
 	return {
@@ -58,6 +58,10 @@ app.factory('Sites', function () {
 					sites[index].surveys.push(survey_id);
 				}
 			}
+		}, 
+		
+		getNameOfSite(site_id) {
+			return sites[site_id].metadata.name;
 		}
 	};
 });

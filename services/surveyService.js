@@ -5,20 +5,44 @@ app.factory('Surveys', function () {
 		'1': {
 			id: '1',
 			siteId: '1',
-			date: 'a valid date string',
+			parentId: '1', // id of parent survey
+			date: 1492160579158,
 			questions: [
 				{
 					question: 'Did you use the butternut squash recipe from last month?',
 					answerOptions: [
 						{
 							display: 'Yes',
-							count: 4,
-							client_ids: [14, 15, 16, 17]
+							count: 43,
+							client_ids: [] // will be filled with 43 client ids
 					},
 						{
 							display: 'No',
-							count: 0,
-							client_ids: []
+							count: 18,
+							client_ids: [] // will be filled with 18 client ids
+					}
+          ]
+        }
+      ]
+		},
+		'2': {
+			id: '2',
+			siteId: '2',
+			parentId: '1', // id of parent survey
+			date: 1492260579158,
+			questions: [
+				{
+					question: 'Did you use the butternut squash recipe from last month?',
+					answerOptions: [
+						{
+							display: 'Yes',
+							count: 230,
+							client_ids: [] // will be filled with 23 client ids
+					},
+						{
+							display: 'No',
+							count: 12,
+							client_ids: [] // will be filled with 12 client ids
 					}
           ]
         }
@@ -48,7 +72,7 @@ app.factory('Surveys', function () {
 							]
 						}
 					],
-			instances: ['1'], // id's of survey instances
+			instances: ['1', '2'], // id's of survey instances
 		}
 	};
 
@@ -56,7 +80,7 @@ app.factory('Surveys', function () {
 		getAllSurveys: function getAllSurveys() {
 			return Object.values(surveys);
 		},
-		
+
 		addNewSurvey: function addNewSurvey(id, newSurvey) {
 			surveys[id] = newSurvey;
 		},
@@ -65,8 +89,40 @@ app.factory('Surveys', function () {
 			return surveys[id];
 		},
 
-		getSurveyInstance: function getSurveyInstance(id) {
+		getSurveyInstanceById: function getSurveyInstance(id) {
 			return surveyInstances[id];
+		},
+
+		getSurveyInstances: function getSurveyInstances(id) {
+			let surveyInstancesArr = [];
+			for (let surveyIndex in surveys[id].instances) {
+				surveyInstancesArr.push(surveyInstances[surveys[id].instances[surveyIndex]]);
+			}
+			return surveyInstancesArr;
+		},
+
+		getAggregateData: function getAggregateData(id, instancesToShow) {
+			let parentSurvey = surveys[id];
+			// return [[{answer: '...', count: ...}, ...], ... ]
+			let data = [];
+			for (let questionIndex in parentSurvey.questions) {
+				let questionData = [];
+				for (let answerIndex in parentSurvey.questions[questionIndex].answerOptions) {
+					let aggregateCount = 0;
+					for (let index in parentSurvey.instances) {
+						if (instancesToShow[index]) { //choosing which sites to count or not to count
+							let instanceQuestions = surveyInstances[parentSurvey.instances[index]].questions;
+							aggregateCount += instanceQuestions[questionIndex].answerOptions[answerIndex].count;
+						}
+					}
+					questionData.push({
+						answer: parentSurvey.questions[questionIndex].answerOptions[answerIndex].display,
+						count: aggregateCount,
+					});
+				}
+				data.push(questionData);
+			}
+			return data;
 		},
 
 	};
