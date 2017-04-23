@@ -22,7 +22,22 @@ app.factory('Surveys', function () {
 							client_ids: [] // will be filled with 18 client ids
 					}
           ]
-        }
+        },
+				{
+					question: 'Do you like cauliflower or broccoli more?',
+					answerOptions: [
+						{
+							display: 'Cauliflower',
+							count: 20,
+							client_ids: []
+						},
+						{
+							display: 'Broccoli',
+							count: 65,
+							client_ids: []
+						}
+							]
+						},
       ]
 		},
 		'2': {
@@ -45,7 +60,22 @@ app.factory('Surveys', function () {
 							client_ids: [] // will be filled with 12 client ids
 					}
           ]
-        }
+        },
+				{
+					question: 'Do you like cauliflower or broccoli more?',
+					answerOptions: [
+						{
+							display: 'Cauliflower',
+							count: 260,
+							client_ids: []
+						},
+						{
+							display: 'Broccoli',
+							count: 501,
+							client_ids: []
+						}
+							]
+						},
       ]
 		}
 	};
@@ -70,7 +100,22 @@ app.factory('Surveys', function () {
 							client_ids: []
 						}
 							]
+						},
+				{
+					question: 'Do you like cauliflower or broccoli more?',
+					answerOptions: [
+						{
+							display: 'Cauliflower',
+							count: 0,
+							client_ids: []
+						},
+						{
+							display: 'Broccoli',
+							count: 0,
+							client_ids: []
 						}
+							]
+						},
 					],
 			instances: ['1', '2'], // id's of survey instances
 		}

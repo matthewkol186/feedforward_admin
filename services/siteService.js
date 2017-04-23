@@ -45,6 +45,29 @@ app.factory('Sites', function () {
 					]
 			},
 			surveys: ['2']
+		},
+		
+		'3': {
+			id: '3',
+			metadata: {
+				name: 'Sad Site',
+				languages: ['Chinese', 'Vietnamese'],
+				clients: [
+					{
+						name: 'Client 11',
+						id: '11'
+						},
+					{
+						name: 'Client 22',
+						id: '22'
+						},
+					{
+						name: 'Client 3_3',
+						id: '33'
+						}
+					]
+			},
+			surveys: []
 		}
 	};
 	return {
