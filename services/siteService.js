@@ -7,12 +7,8 @@ app.factory('Sites', function ($firebaseArray, $firebaseObject) {
 			return $firebaseArray(sitesRef);
 		},
 
-		runSurveyAtSite(site_id, survey_id) {
-			for (var index in sites) {
-				if (sites[index].id === site_id) {
-					sites[index].surveys.push(survey_id);
-				}
-			}
+		runSurveyAtSite(siteId, instanceId) {
+			sitesRef.child(siteId).child("surveys").push(instanceId);
 		}, 
 		
 		getNameOfSite(site_id) {

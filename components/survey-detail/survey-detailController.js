@@ -2,14 +2,13 @@
 
 app.controller('SurveyDetailController', ['$scope', '$resource', '$routeParams', '$location', 'Surveys', 'Sites',
     function ($scope, $resource, $routeParams, $location, Surveys, Sites) {
-		$scope.main.title = 'Users';
+		$scope.main.title = 'FeedForward | Survey Detail';
 
 		$scope.surveyId = $routeParams.surveyId;
 			
 		$scope.sites = Sites.getAllSites();
 		$scope.survey = Surveys.getSurveyById($scope.surveyId);
 		$scope.survey.$loaded().then(function(parentSurvey) {
-			console.log(parentSurvey);
 			$scope.surveyInstances = Surveys.getSurveyInstances(parentSurvey.$id);
 			$scope.surveyInstances.$loaded().then(function(surveyInstances){
 				console.log(surveyInstances);

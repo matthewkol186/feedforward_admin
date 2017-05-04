@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Surveys', function ($firebaseArray, $firebaseObject) {
+app.factory('Surveys', function ($firebaseArray, $firebaseObject, Sites) {
 	var surveyInstances = firebase.database().ref().child("surveyInstances");
 
 	var surveys = firebase.database().ref().child("surveys");
@@ -52,9 +52,10 @@ app.factory('Surveys', function ($firebaseArray, $firebaseObject) {
 				var newPostKey = surveyInstances.push(surveyInstance).key;
 				surveys.child(id).child("instances").push(newPostKey);
 				console.log(survey.sites);
-				if(Object.values(survey.sites).indexOf(siteId) < 0) {
+				if(!survey.sites || Object.values(survey.sites).indexOf(siteId) < 0) {
 					surveys.child(id).child("sites").push(siteId);
 				}
+				Sites.runSurveyAtSite(siteId, newPostKey);
 			});
 		},
 
