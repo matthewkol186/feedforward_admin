@@ -31,12 +31,12 @@
 				<h5>OPTIONS</h5>
 			</div>
 		</md-list-item>
-		<md-list-item class="md-1-line" ng-repeat="survey in surveys" ng-click="go(survey.id)" ng-show="matchesFilter(survey)">
+		<md-list-item class="md-1-line" ng-repeat="survey in surveys track by $index" ng-click="go(survey.$id)" ng-show="matchesFilter(survey)">
 			<div class="md-list-item-text" flex="40">
 				{{survey.name}}
 			</div>
 			<div flex="30">
-				{{survey.siteList.join(", ")}}
+				<span ng-repeat="siteId in survey.sites"> <span ng-repeat="site in sites" ng-show="site.$id === siteId">{{site.metadata.name}}</span><span ng-show="!$last">, </span></span>
 			</div>
 			<div flex="20">
 				{{survey.date | date}}
@@ -48,7 +48,7 @@
 					</md-button>
 					<md-menu-content width="2">
 						<md-menu-item ng-repeat="item in surveyOptions">
-							<md-button ng-click="announceClick($index, survey.id)"> <span md-menu-align-target></span> {{item}} </md-button>
+							<md-button ng-click="announceClick($index, survey.$id)"> <span md-menu-align-target></span> {{item}} </md-button>
 						</md-menu-item>
 					</md-menu-content>
 				</md-menu>

@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('FeedForwardAdmin', ['ngRoute', 'ngMaterial', 'ngResource', 'nvd3']);
+var app = angular.module('FeedForwardAdmin', ['ngRoute', 'ngMaterial', 'ngResource', 'nvd3', 'firebase']);
 
 app.config(['$routeProvider',
     function ($routeProvider) {

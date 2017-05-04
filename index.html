@@ -46,6 +46,8 @@
 	<script src="bower_components/d3/d3.js"></script>
 	<script src="bower_components/nvd3/build/nv.d3.js"></script> <!-- or use another assembly -->
 	<script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+	<script src="bower_components/firebase/firebase.js"></script>
+	<script src="bower_components/angularfire/dist/angularfire.min.js"></script>
 	<link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css">
 
 </head>
@@ -62,7 +64,17 @@
 		</div>
 	</md-toolbar>
 	<div ng-view class="container" flex layout="row"></div>
-
+	
+	<script>
+		// Initialize the Firebase SDK
+		var config = {
+			apiKey: 'AIzaSyDN5p-3CoA27cE_1utcgfzGXgyPMcRj3Zw',
+			authDomain: 'feedforward-4cade.firebaseapp.com',
+			databaseURL: 'https://feedforward-4cade.firebaseio.com',
+			storageBucket: 'feedforward-4cade.appspot.com'
+		};
+		firebase.initializeApp(config);
+	</script>
 </body>
 
 </html>

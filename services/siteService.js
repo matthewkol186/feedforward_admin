@@ -1,78 +1,10 @@
 'use strict';
 
-app.factory('Sites', function () {
-	var sites = {
-		'1': {
-			id: '1',
-			metadata: {
-				name: 'Church',
-				languages: ['Spanish', 'Vietnamese'],
-				clients: [
-					{
-						name: 'Client 1',
-						id: '1'
-						},
-					{
-						name: 'Client 2',
-						id: '2'
-						},
-					{
-						name: 'Client 3',
-						id: '3'
-						}
-					]
-			},
-			surveys: ['1']
-		},
-		'2': {
-			id: '2',
-			metadata: {
-				name: 'School',
-				languages: ['Chinese', 'Vietnamese'],
-				clients: [
-					{
-						name: 'Client 11',
-						id: '11'
-						},
-					{
-						name: 'Client 22',
-						id: '22'
-						},
-					{
-						name: 'Client 3_3',
-						id: '33'
-						}
-					]
-			},
-			surveys: ['2']
-		},
-		
-		'3': {
-			id: '3',
-			metadata: {
-				name: 'Sad Site',
-				languages: ['Chinese', 'Vietnamese'],
-				clients: [
-					{
-						name: 'Client 11',
-						id: '11'
-						},
-					{
-						name: 'Client 22',
-						id: '22'
-						},
-					{
-						name: 'Client 3_3',
-						id: '33'
-						}
-					]
-			},
-			surveys: []
-		}
-	};
+app.factory('Sites', function ($firebaseArray, $firebaseObject) {
+	var sitesRef = firebase.database().ref().child("sites");
 	return {
 		getAllSites: function getAllSites() {
-			return Object.values(sites);
+			return $firebaseArray(sitesRef);
 		},
 
 		runSurveyAtSite(site_id, survey_id) {
@@ -84,7 +16,8 @@ app.factory('Sites', function () {
 		}, 
 		
 		getNameOfSite(site_id) {
-			return sites[site_id].metadata.name;
+			console.log(site_id);
+			return $firebaseObject(sitesRef.child(site_id).child("metadata").child("name"));
 		}
 	};
 });

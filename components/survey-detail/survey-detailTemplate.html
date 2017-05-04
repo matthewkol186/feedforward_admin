@@ -1,14 +1,13 @@
 <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2" ng-if="main.loggedIn">
 	<md-content layout-padding>
-		<h3 class="md-title">Filter Instances</h3>
+
+		<h3 class="md-title">Filter Surveys</h3>
 		<md-list flex>
 			<div ng-repeat="instance in surveyInstances track by $index">
 				<md-list-item class="md-1-line">
-					<div class="md-list-item-text">
-						<md-checkbox ng-model="instancesToShow[$index]" ng-change="updateData()">
-							{{getNameOfSite(instance.siteId)}} on {{instance.date | date}}
-						</md-checkbox>
-					</div>
+					<md-checkbox ng-model="instancesToShow[$index]" ng-change="updateData()"></md-checkbox>
+					<p ng-repeat="site in sites" ng-show="site.$id === instance.siteId">{{site.metadata.name}} on {{instance.date | date}}</p>
+					<md-button class="md-primary" ng-click="instance.active = !instance.active; surveyInstances.$save(instance)"> <span ng-show="instance.active">Deactivate</span><span ng-show="!instance.active">Activate</span></md-button>
 				</md-list-item>
 			</div>
 		</md-list>
@@ -22,11 +21,17 @@
 		</md-list-item>
 	</md-list>-->
 	<h1>{{survey.name}}</h1>
-	<div ng-repeat = "question in survey.questions track by $index">
+	<form>
+		<md-input-container>
+			<label>Select a site</label>
+			<md-select ng-model="assignSite.new">
+				<md-option ng-repeat="site in sites" ng-value="site">{{site.metadata.name}}</md-option>
+			</md-select>
+		</md-input-container>
+		<md-button class="md-raised md-primary" ng-click="assignToNewSite()">Survey New Site</md-button>
+	</form>
+	<div ng-repeat="question in survey.questions track by $index">
 		<h3>{{question.question}}</h3>
 		<nvd3 options="options" data="aggregateData[$index]"></nvd3>
-		<div ng-repeat = "answerOption in question.answerOptions track by $index">
-			<p>{{answerOption.display}}: {{aggregateData[$parent.$index][$index].count}}</p>
-		</div>
 	</div>
 </md-content>
