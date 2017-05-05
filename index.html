@@ -57,8 +57,11 @@
 
 	<md-toolbar layout-padding layout="row">
 		<div class="md-toolbar-tools">
-			<h3 class="md-subhead" ng-show="main.loggedIn">Welcome to FeedForward Admin!</h3>
-
+			<md-button class="md-icon-button" aria-label="Settings" ng-disabled="true" style="width:190px; border-radius:0%">
+				<img class="png-image" src="feedforward_logo.png" style="height: 25px; width: auto">
+			</md-button>
+			<h3 class="md-subhead" ng-show="main.loggedIn">Nutritionist Console</h3>
+			
 			<span flex></span>
 			<md-button class="md-raised" ng-show="main.loggedIn" ng-href="#/survey/new" aria-label="Logout">New Survey</md-button>
 			<md-button ng-show="main.loggedIn" ng-click="logout()" aria-label="Logout">Logout</md-button>

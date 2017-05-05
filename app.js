@@ -28,4 +28,10 @@ app.config(['$routeProvider',
 		otherwise({
 			redirectTo: '/surveys'
 		});
-}]);
+}])
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('amber')
+    .accentPalette('orange')
+		.warnPalette('teal');
+});;

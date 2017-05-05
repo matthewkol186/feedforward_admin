@@ -1,1 +1,124 @@
-{"sites":{"1":{"id":"1","metadata":{"name":"Church","languages":["Spanish","Vietnamese"],"clients":[{"name":"Client 1","id":"1"},{"name":"Client 2","id":"2"},{"name":"Client 3","id":"3"}]},"surveys":["1"]},"2":{"id":"2","metadata":{"name":"School","languages":["Chinese","Vietnamese"],"clients":[{"name":"Client 11","id":"11"},{"name":"Client 22","id":"22"},{"name":"Client 3_3","id":"33"}]},"surveys":["2"]},"3":{"id":"3","metadata":{"name":"Sad Site","languages":["Chinese","Vietnamese"],"clients":[{"name":"Client 11","id":"11"},{"name":"Client 22","id":"22"},{"name":"Client 3_3","id":"33"}]},"surveys":[]}},"surveys":{"1":{"name":"Butternut Squash Survey","id":"1","date":1492360579158,"questions":[{"question":"Did you use the butternut squash recipe from last month?","answerOptions":[{"display":"Yes","count":0,"client_ids":[]},{"display":"No","count":0,"client_ids":[]}]},{"question":"Do you like cauliflower or broccoli more?","answerOptions":[{"display":"Cauliflower","count":0,"client_ids":[]},{"display":"Broccoli","count":0,"client_ids":[]}]}],"instances":["1","2"]}},"surveyInstances":{"1":{"id":"1","siteId":"1","parentId":"1","date":1492160579158,"questions":[{"question":"Did you use the butternut squash recipe from last month?","answerOptions":[{"display":"Yes","count":43,"client_ids":[]},{"display":"No","count":18,"client_ids":[]}]},{"question":"Do you like cauliflower or broccoli more?","answerOptions":[{"display":"Cauliflower","count":20,"client_ids":[]},{"display":"Broccoli","count":65,"client_ids":[]}]}]},"2":{"id":"2","siteId":"2","parentId":"1","date":1492260579158,"questions":[{"question":"Did you use the butternut squash recipe from last month?","answerOptions":[{"display":"Yes","count":230,"client_ids":[]},{"display":"No","count":12,"client_ids":[]}]},{"question":"Do you like cauliflower or broccoli more?","answerOptions":[{"display":"Cauliflower","count":260,"client_ids":[]},{"display":"Broccoli","count":501,"client_ids":[]}]}]}}}
+{
+  "sites" : [ null, {
+    "metadata" : {
+      "clients" : [ {
+        "id" : "1",
+        "name" : "Client 1"
+      }, {
+        "id" : "2",
+        "name" : "Client 2"
+      }, {
+        "id" : "3",
+        "name" : "Client 3"
+      } ],
+      "languages" : [ "Spanish", "Vietnamese" ],
+      "name" : "Church"
+    },
+    "surveys" : [ "1" ]
+  }, {
+    "metadata" : {
+      "clients" : [ {
+        "id" : "11",
+        "name" : "Client 11"
+      }, {
+        "id" : "22",
+        "name" : "Client 22"
+      }, {
+        "id" : "33",
+        "name" : "Client 3_3"
+      } ],
+      "languages" : [ "Chinese", "Vietnamese" ],
+      "name" : "School"
+    },
+    "surveys" : [ "2" ]
+  }, {
+    "metadata" : {
+      "clients" : [ {
+        "id" : "11",
+        "name" : "Client 11"
+      }, {
+        "id" : "22",
+        "name" : "Client 22"
+      }, {
+        "id" : "33",
+        "name" : "Client 3_3"
+      } ],
+      "languages" : [ "Chinese", "Vietnamese" ],
+      "name" : "Sad Site"
+    }
+  } ],
+  "surveyInstances" : [ null, {
+    "active" : true,
+    "date" : 1492160579158,
+    "parentId" : "1",
+    "questions" : [ {
+      "answerOptions" : [ {
+        "count" : 43,
+        "display" : "Yes"
+      }, {
+        "count" : 18,
+        "display" : "No"
+      } ],
+      "question" : "Did you use the butternut squash recipe from last month?"
+    }, {
+      "answerOptions" : [ {
+        "count" : 20,
+        "display" : "Cauliflower"
+      }, {
+        "count" : 65,
+        "display" : "Broccoli"
+      } ],
+      "question" : "Do you like cauliflower or broccoli more?"
+    } ],
+    "siteId" : "1"
+  }, {
+    "active" : true,
+    "date" : 1492260579158,
+    "parentId" : "1",
+    "questions" : [ {
+      "answerOptions" : [ {
+        "count" : 230,
+        "display" : "Yes"
+      }, {
+        "count" : 12,
+        "display" : "No"
+      } ],
+      "question" : "Did you use the butternut squash recipe from last month?"
+    }, {
+      "answerOptions" : [ {
+        "count" : 260,
+        "display" : "Cauliflower"
+      }, {
+        "count" : 501,
+        "display" : "Broccoli"
+      } ],
+      "question" : "Do you like cauliflower or broccoli more?"
+    } ],
+    "siteId" : "2"
+  } ],
+  "surveys" : [ null, {
+    "date" : 1492360579158,
+    "instances" : [ "1", "2" ],
+    "name" : "Butternut Squash Survey",
+    "questions" : [ {
+      "answerOptions" : [ {
+        "count" : 0,
+        "display" : "Yes"
+      }, {
+        "count" : 0,
+        "display" : "No"
+      } ],
+      "question" : "Did you use the butternut squash recipe from last month?"
+    }, {
+      "answerOptions" : [ {
+        "count" : 0,
+        "display" : "Cauliflower"
+      }, {
+        "count" : 0,
+        "display" : "Broccoli"
+      } ],
+      "question" : "Do you like cauliflower or broccoli more?"
+    } ],
+    "sites" : [ "1", "2" ]
+  } ]
+}
