@@ -19,7 +19,7 @@ app.controller('SurveyNewController', ['$scope', '$location', '$resource', '$roo
 		$scope.submitSurvey = function () {
 			$scope.survey.date = (new Date()).getTime();
 			$scope.survey.sites = [];
-			Surveys.addNewSurvey(id, $scope.survey);
+			Surveys.addNewSurvey($scope.survey);
 			$scope.go('/surveys');
 		}
 }]);

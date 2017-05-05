@@ -10,7 +10,7 @@ app.factory('Surveys', function ($firebaseArray, $firebaseObject, Sites) {
 			return $firebaseArray(surveys);
 		},
 
-		addNewSurvey: function addNewSurvey(id, newSurvey) {
+		addNewSurvey: function addNewSurvey(newSurvey) {
 			$firebaseArray(surveys).$add(newSurvey);
 		},
 		
