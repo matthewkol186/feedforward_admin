@@ -1,15 +1,36 @@
 <md-content layout-padding>
 	<h1 class="md-title">Nutrition Decks</h1>
+	<h2 class="md-headline">Active Nutrition: <b>{{activeNutrition.name}}</b></h2>
 
 	<md-content layout="row" layout-wrap>
 		<div flex="25" ng-repeat="nutrition in nutritions | orderBy: 'name'">
-			<md-card ng-click="go('/nutrition/'+nutrition.$id)">
-				<img ng-src="{{nutrition.url}}">
-				<md-card-title>
+			<md-card>
+				<img ng-src="{{nutrition.url}}" ng-click="go('/nutrition/'+nutrition.$id)">
+				<md-card-title ng-click="go('/nutrition/'+nutrition.$id)">
 					<md-card-title-text>
 						<span class="md-headline">{{nutrition.name}}</span>
 					</md-card-title-text>
 				</md-card-title>
+				<md-card-actions layout="row" layout-align="end center">
+					<md-button ng-click="setActive(nutrition)">Set Active</md-button>
+					<md-button ng-click="removeDeck(nutrition.$id)">Remove</md-button>
+				</md-card-actions>
+			</md-card>
+		</div>
+		<div flex="30">
+			<md-card>
+				<md-card-content>
+					<form>
+						<lf-ng-md-file-input lf-files="files" lf-api="api" ng-disabled="disabled" accept="image/*"></lf-ng-md-file-input>
+						<md-input-container style="width:100%">
+							<label>Title</label>
+							<input ng-model="newCardName">
+						</md-input-container>
+						<div>
+							<md-button type="submit" ng-click="uploadNutrition()" ng-disabled="!(files[0]) || !(newCardName)">Submit</md-button>
+						</div>
+					</form>
+				</md-card-content>
 			</md-card>
 		</div>
 	</md-content>

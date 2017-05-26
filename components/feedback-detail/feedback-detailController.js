@@ -11,7 +11,7 @@ app.controller('FeedbackDetailController', ['$scope', '$resource', '$routeParams
 			$scope.nutritionInfo = [];
 			$scope.siteSelected = true;
 			$scope.currentSite = site;
-			$scope.siteFeedback = Feedback.getFeedbackById(site.feedbackObj);
+			$scope.siteFeedback = Feedback.getFeedbackById(site.$id);
 			$scope.siteFeedback.$loaded(function(data) {
 				console.log(data);
 				for(var n in data.nutrition) {

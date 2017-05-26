@@ -36,7 +36,7 @@
 				</md-card-title>
 				<md-card-content>
 					<h3 class="md-subhead">{{nutritionInfo[$index].question}}</h3>
-					<h3><b>{{nutrition.rating}}</b></h3>
+					<h3><b>{{nutrition.rating | number:1}}</b></h3>
 					<p><i>Based on feedback from {{nutrition.totalRatings}} Health Ambassadors</i></p>
 				</md-card-content>
 			</md-card>

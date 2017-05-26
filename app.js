@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('FeedForwardAdmin', ['ngRoute', 'ngMaterial', 'ngResource', 'nvd3', 'firebase']);
+var app = angular.module('FeedForwardAdmin', ['ngRoute', 'ngMaterial', 'ngResource', 'nvd3', 'firebase', 'lfNgMdFileInput', 'oitozero.ngSweetAlert']);
 
 app.config(['$routeProvider',
     function ($routeProvider) {
