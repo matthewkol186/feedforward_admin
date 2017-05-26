@@ -21,12 +21,24 @@ app.config(['$routeProvider',
 			templateUrl: 'components/survey-new/survey-newTemplate.html',
 			controller: 'SurveyNewController'
 		}).
+		when('/feedback', {
+			templateUrl: 'components/feedback-detail/feedback-detailTemplate.html',
+			controller: 'FeedbackDetailController'
+		}).
 		when('/surveys/:surveyId', {
 			templateUrl: 'components/survey-detail/survey-detailTemplate.html',
 			controller: 'SurveyDetailController'
 		}).
+		when('/nutrition', {
+			templateUrl: 'components/nutrition-list/nutrition-listTemplate.html',
+			controller: 'NutritionListController'
+		}).
+		when('/nutrition/:id', {
+			templateUrl: 'components/nutrition-detail/nutrition-detailTemplate.html',
+			controller: 'NutritionDetailController'
+		}).
 		otherwise({
-			redirectTo: '/surveys'
+			redirectTo: '/nutrition'
 		});
 }])
 .config(function($mdThemingProvider) {

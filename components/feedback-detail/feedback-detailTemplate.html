@@ -1,0 +1,50 @@
+<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2" ng-if="main.loggedIn">
+	<md-content layout-padding>
+		<h3 class="md-title">Site Selection</h3>
+	</md-content>
+	<md-list flex>
+		<md-list-item class="md-1-line" ng-repeat="site in sites | orderBy: 'name' track by $index" ng-click="selectSite(site)">
+			<div class="md-list-item-text">
+				<p>{{ site.name }}</p>
+			</div>
+		</md-list-item>
+	</md-list>
+</md-sidenav>
+
+<md-content layout-padding flex id="content">
+
+	<h3 ng-show="!siteSelected">Please click a site on the left to view its feedback.</h3>
+	<div ng-show="siteSelected">
+		<h1>{{currentSite.name}}</h1>
+		<h2>Average rating: {{siteFeedback.avgRating}}/5</h2>
+		<h2 class="md-display-1">Feedback</h2>
+		<md-card ng-repeat="comment in siteFeedback.comments">
+			<md-card-content>
+				<p>{{comment}}</p>
+			</md-card-content>
+		</md-card>
+		
+		<h2 class="md-display-1">Nutrition Education Results</h2>
+		<md-content layout="row" layout-wrap>
+		<div flex="33" ng-repeat="nutrition in siteFeedback.nutrition track by $index">
+			<md-card>
+				<img ng-src="{{nutritionInfo[$index].url}}">
+				<md-card-title>
+					<md-card-title-text>
+						<span class="md-headline">{{nutritionInfo[$index].name}}</span>
+					</md-card-title-text>
+				</md-card-title>
+				<md-card-content>
+					<h3 class="md-subhead">{{nutritionInfo[$index].question}}</h3>
+					<h3><b>{{nutrition.rating}}</b></h3>
+					<p><i>Based on feedback from {{nutrition.totalRatings}} Health Ambassadors</i></p>
+				</md-card-content>
+			</md-card>
+		</div>
+	</md-content>
+	</div>
+	<!--<div ng-repeat="question in survey.questions track by $index">
+		<h3>{{question.question}}</h3>
+<nvd3 options="options" data="aggregateData[$index]"></nvd3>
+	</div>-->
+</md-content>

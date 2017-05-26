@@ -11,7 +11,6 @@ app.controller('MainController', ['$scope', '$resource', '$rootScope', '$locatio
 		var AuthStatus = $resource('user/loggedin');
 		var Activity = $resource('registerActivity');
 
-		$scope.version = TestInfo.get();
 		$rootScope.$on("$routeChangeStart", function (event, next, current) {
 			if (!$scope.main.checkedLogIn) {
 				AuthStatus.get(function (success) {
@@ -33,6 +32,14 @@ app.controller('MainController', ['$scope', '$resource', '$rootScope', '$locatio
 						$location.path("/login-register");
 					}
 				}
+			}
+		});
+
+		$rootScope.$on('$routeChangeSuccess', function (event, current) {
+			if(current.$$route.originalPath.includes("nutrition")) {
+				$scope.currentNavItem = "nutritionlist";
+			} else {
+				$scope.currentNavItem = "feedback";
 			}
 		});
 

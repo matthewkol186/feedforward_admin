@@ -1,0 +1,16 @@
+<md-content layout-padding>
+	<h1 class="md-title">Nutrition Decks</h1>
+
+	<md-content layout="row" layout-wrap>
+		<div flex="25" ng-repeat="nutrition in nutritions | orderBy: 'name'">
+			<md-card ng-click="go('/nutrition/'+nutrition.$id)">
+				<img ng-src="{{nutrition.url}}">
+				<md-card-title>
+					<md-card-title-text>
+						<span class="md-headline">{{nutrition.name}}</span>
+					</md-card-title-text>
+				</md-card-title>
+			</md-card>
+		</div>
+	</md-content>
+</md-content>

@@ -1,0 +1,26 @@
+<md-content layout-padding flex id="content">
+	<h1 class="md-display-2">{{nutrition.name}}</h1>
+	
+	<h3 class="md-title">Send Nutrition Deck to Site</h3>
+	<form>
+		<md-input-container>
+			<label>Select a site</label>
+			<md-select ng-model="assignSite.new">
+				<md-option ng-repeat="site in sites" ng-value="site">{{site.name}}</md-option>
+			</md-select>
+		</md-input-container>
+		<md-button class="md-raised md-primary" ng-click="assignToNewSite()">Send New Site</md-button>
+	</form>
+	
+	<h2 class="md-display-1">Deck Images</h2>
+	<md-content layout="row" layout-wrap>
+		<div flex="30" ng-repeat="image in images track by $index">
+			<md-card>
+				<img ng-src="{{image.$value}}">
+			</md-card>
+			<md-card-actions layout="row" layout-align="end center">
+				<md-button ng-click="images.$remove($index)">Remove</md-button>
+			</md-card-actions>
+		</div>
+	</md-content>
+</md-content>

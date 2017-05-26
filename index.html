@@ -3,7 +3,7 @@
 
 <head>
 
-	<title>{{main.title || "CS142 Class Project"}}</title>
+	<title>{{main.title || FeedForward}}</title>
 
 	<link href="./node_modules/angular-material/angular-material.css" rel="stylesheet" />
 
@@ -20,7 +20,9 @@
 
 	<!-- DATA -->
 	<script src="services/siteService.js"></script>
+	<script src="services/nutritionService.js"></script>
 	<script src="services/surveyService.js"></script>
+	<script src="services/feedbackService.js"></script>
 
 	<script src="mainController.js"></script>
 	<link rel="stylesheet" type="text/css" href="main.css" />
@@ -33,19 +35,30 @@
 
 	<script src="components/survey-detail/survey-detailController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/survey-detail/survey-detail.css" />
-	
+
 	<script src="components/survey-new/survey-newController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/survey-new/survey-new.css" />
 
+	<script src="components/nutrition-list/nutrition-listController.js"></script>
+	<link rel="stylesheet" type="text/css" href="components/nutrition-list/nutrition-list.css" />
+
+	<script src="components/nutrition-detail/nutrition-detailController.js"></script>
+	<link rel="stylesheet" type="text/css" href="components/nutrition-detail/nutrition-detail.css" />
+	
+	<script src="components/feedback-detail/feedback-detailController.js"></script>
+	<link rel="stylesheet" type="text/css" href="components/feedback-detail/feedback-detail.css" />
+
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	
+
 	<!-- DATA VIZ -->
-	
-	<meta charset="utf-8">  <!-- it's important for d3.js -->
+
+	<meta charset="utf-8">
+	<!-- it's important for d3.js -->
 	<!--<script src="bower_components/angular/angular.js"></script>-->
 	<script src="bower_components/d3/d3.js"></script>
-	<script src="bower_components/nvd3/build/nv.d3.js"></script> <!-- or use another assembly -->
+	<script src="bower_components/nvd3/build/nv.d3.js"></script>
+	<!-- or use another assembly -->
 	<script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
 	<script src="bower_components/firebase/firebase.js"></script>
 	<script src="bower_components/angularfire/dist/angularfire.min.js"></script>
@@ -61,14 +74,22 @@
 				<img class="png-image" src="feedforward_logo.png" style="height: 25px; width: auto">
 			</md-button>
 			<h3 class="md-subhead" ng-show="main.loggedIn">Nutritionist Console</h3>
-			
 			<span flex></span>
 			<md-button class="md-raised" ng-show="main.loggedIn" ng-href="#/survey/new" aria-label="Logout">New Survey</md-button>
 			<md-button ng-show="main.loggedIn" ng-click="logout()" aria-label="Logout">Logout</md-button>
 		</div>
 	</md-toolbar>
+	<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+		<md-nav-item md-nav-href="/#/nutrition" name="nutritionlist">Nutrition</md-nav-item>
+		<md-nav-item md-nav-href="/#/feedback" name="feedback">Feedback</md-nav-item>
+		<!--<md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
+      You can also add options for the <code>ui-sref-opts</code> attribute.
+      <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
+        Page Six
+      </md-nav-item>-->
+	</md-nav-bar>
 	<div ng-view class="container" flex layout="row"></div>
-	
+
 	<script>
 		// Initialize the Firebase SDK
 		var config = {
