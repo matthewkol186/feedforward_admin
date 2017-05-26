@@ -31,7 +31,7 @@ app.factory('Nutrition', function ($firebaseArray, $firebaseObject) {
 		},
 		
 		removeActiveNutrition: function removeActiveNutrition() {
-			($firebaseObject(activeNutrition)).active = false;
+			activeNutrition.update({active: false});
 		},
 		
 		getActiveNutrition: function getActiveNutrition() {

@@ -18,8 +18,24 @@ app.controller('NutritionListController', ['$scope', '$resource', '$location', '
 		};
 
 		$scope.setActive = function (deck) {
-			SweetAlert.swal("Successfully changed!", deck.name+" is now active.", "success");
+			SweetAlert.swal("Successfully changed!", deck.name + " is now active.", "success");
 			Nutrition.setActiveNutrition(deck.$id, deck.name);
+		};
+
+		$scope.removeActive = function () {
+			SweetAlert.swal({
+					title: "Are you sure?",
+					text: "Confirm deactivation of " + $scope.activeNutrition.name,
+					type: "info",
+					showCancelButton: true,
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "Yes, deactivate it!",
+					closeOnConfirm: false
+				},
+				function () {
+					Nutrition.removeActiveNutrition();
+					SweetAlert.swal("Successfully deactivated!", "", "success");
+				});
 		};
 
 		$scope.uploadNutrition = function () {

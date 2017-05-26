@@ -1,6 +1,6 @@
 <md-content layout-padding>
 	<h1 class="md-title">Nutrition Decks</h1>
-	<h2 class="md-headline">Active Nutrition: <b>{{activeNutrition.name}}</b></h2>
+	<h2 class="md-headline" ng-show="activeNutrition.active">Active Nutrition: <b>{{activeNutrition.name}}</b> <md-button class="md-icon-button md-accent" ng-click="removeActive()"><md-icon>cancel</md-icon></md-button></h2>
 
 	<md-content layout="row" layout-wrap>
 		<div flex="25" ng-repeat="nutrition in nutritions | orderBy: 'name'">

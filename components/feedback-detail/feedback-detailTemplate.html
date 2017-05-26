@@ -16,7 +16,7 @@
 	<h3 ng-show="!siteSelected">Please click a site on the left to view its feedback.</h3>
 	<div ng-show="siteSelected">
 		<h1>{{currentSite.name}}</h1>
-		<h2>Average rating: {{siteFeedback.avgRating}}/5</h2>
+		<h2>Average rating: {{siteFeedback.avgRating | number:1}}/5</h2>
 		<h2 class="md-display-1">Feedback</h2>
 		<md-card ng-repeat="comment in siteFeedback.comments">
 			<md-card-content>
