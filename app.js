@@ -13,25 +13,21 @@ app.config(['$routeProvider',
 			templateUrl: 'components/site-list/site-listTemplate.html',
 			controller: 'SiteListController'
 		}).
-		when('/surveys', {
-			templateUrl: 'components/survey-list/survey-listTemplate.html',
-			controller: 'SurveyListController'
-		}).
-		when('/survey/new', {
-			templateUrl: 'components/survey-new/survey-newTemplate.html',
-			controller: 'SurveyNewController'
-		}).
 		when('/feedback', {
 			templateUrl: 'components/feedback-detail/feedback-detailTemplate.html',
 			controller: 'FeedbackDetailController'
 		}).
-		when('/surveys/:surveyId', {
-			templateUrl: 'components/survey-detail/survey-detailTemplate.html',
-			controller: 'SurveyDetailController'
-		}).
 		when('/nutrition', {
 			templateUrl: 'components/nutrition-list/nutrition-listTemplate.html',
 			controller: 'NutritionListController'
+		}).
+		when('/perminfo', {
+			templateUrl: 'components/permanent-info/permanent-infoTemplate.html',
+			controller: 'PermanentInfoController'
+		}).
+		when('/perminfo/:id', {
+			templateUrl: 'components/permanent-info-detail/permanent-info-detailTemplate.html',
+			controller: 'PermanentInfoDetailController'
 		}).
 		when('/nutrition/:id', {
 			templateUrl: 'components/nutrition-detail/nutrition-detailTemplate.html',

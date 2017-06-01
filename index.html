@@ -23,21 +23,13 @@
 	<script src="services/nutritionService.js"></script>
 	<script src="services/surveyService.js"></script>
 	<script src="services/feedbackService.js"></script>
+	<script src="services/permanentInfoService.js"></script>
 
 	<script src="mainController.js"></script>
 	<link rel="stylesheet" type="text/css" href="main.css" />
 
 	<script src="components/site-list/site-listController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/site-list/site-list.css" />
-
-	<script src="components/survey-list/survey-listController.js"></script>
-	<link rel="stylesheet" type="text/css" href="components/survey-list/survey-list.css" />
-
-	<script src="components/survey-detail/survey-detailController.js"></script>
-	<link rel="stylesheet" type="text/css" href="components/survey-detail/survey-detail.css" />
-
-	<script src="components/survey-new/survey-newController.js"></script>
-	<link rel="stylesheet" type="text/css" href="components/survey-new/survey-new.css" />
 
 	<script src="components/nutrition-list/nutrition-listController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/nutrition-list/nutrition-list.css" />
@@ -47,6 +39,12 @@
 	
 	<script src="components/feedback-detail/feedback-detailController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/feedback-detail/feedback-detail.css" />
+	
+	<script src="components/permanent-info/permanent-infoController.js"></script>
+	<link rel="stylesheet" type="text/css" href="components/permanent-info/permanent-info.css" />
+	
+	<script src="components/permanent-info-detail/permanent-info-detailController.js"></script>
+	<link rel="stylesheet" type="text/css" href="components/permanent-info-detail/permanent-info-detail.css" />
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -84,12 +82,12 @@
 			</md-button>
 			<h3 class="md-subhead" ng-show="main.loggedIn">Nutritionist Console</h3>
 			<span flex></span>
-			<md-button class="md-raised" ng-show="main.loggedIn" ng-href="#/survey/new" aria-label="Logout">New Survey</md-button>
-			<md-button ng-show="main.loggedIn" ng-click="logout()" aria-label="Logout">Logout</md-button>
+			<md-button class="md-raised" ng-show="main.loggedIn" ng-click="logout()" aria-label="Logout">Logout</md-button>
 		</div>
 	</md-toolbar>
 	<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
 		<md-nav-item md-nav-href="/#/nutrition" name="nutritionlist">Nutrition</md-nav-item>
+		<md-nav-item md-nav-href="/#/perminfo" name="perminfo">Static Information</md-nav-item>
 		<md-nav-item md-nav-href="/#/feedback" name="feedback">Feedback</md-nav-item>
 		<!--<md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
       You can also add options for the <code>ui-sref-opts</code> attribute.

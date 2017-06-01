@@ -1,0 +1,38 @@
+<md-content layout-padding flex id="content">
+	<h1 class="md-display-1">Static Nutrition Information</h1>
+	<p>Click an item to edit!</p>
+	<md-content layout-padding flex id="content">
+		<md-list flex>
+			<md-list-item class="md-1-line">
+				<div class="md-list-item-text" flex="80">
+					<h5>NAME</h5>
+				</div>
+				<div flex="20">
+					<h5>OPTIONS</h5>
+				</div>
+			</md-list-item>
+			<md-list-item class="md-1-line" ng-repeat="info in permanentInfo track by $index" ng-click="go('/perminfo/'+info.$id)">
+				<div class="md-list-item-text" flex="80">
+					{{info.title}}
+				</div>
+				<div flex="20">
+					<md-button aria-label="Open demo menu" class="md-icon-button" ng-click="removeInfo(info)">
+						<md-icon md-menu-origin md-font-icon="delete">delete</md-icon>
+					</md-button>
+				</div>
+			</md-list-item>
+		</md-list>
+
+	</md-content>
+	<h1 class="md-headline">Create New Section</h1>
+	<md-content layout-padding layout="row" layout-align="start end">
+		<form>
+			<md-input-container class="hide-error-msg">
+				<label>New Section Title</label>
+				<input ng-model="newTitle">
+			</md-input-container>
+			<md-button class="md-raised md-primary" flex ng-click="addNewPermInfo()">Create</md-button>
+		</form>
+	</md-content>
+
+</md-content>

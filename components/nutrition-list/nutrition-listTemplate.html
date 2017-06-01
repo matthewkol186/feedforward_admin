@@ -1,6 +1,14 @@
 <md-content layout-padding>
-	<h1 class="md-title">Nutrition Decks</h1>
-	<h2 class="md-headline" ng-show="activeNutrition.active">Active Nutrition: <b>{{activeNutrition.name}}</b> <md-button class="md-icon-button md-accent" ng-click="removeActive()"><md-icon>cancel</md-icon></md-button></h2>
+	<h1 class="md-title">Nutrition Curriculum</h1>
+	<h2 class="md-headline">Active Decks</h2>
+	<p ng-show="activeNutrition.length === 0">No nutrition decks are currently active.</p>
+	<md-content class="md-padding" layout="column" ng-show="activeNutrition.length > 0">
+		<md-chips ng-model="activeNutrition" readonly="true" md-removable="true" md-on-remove="removeActive($chip)">
+			<md-chip-template>
+				{{$chip.name}}
+			</md-chip-template>
+		</md-chips>
+	</md-content>
 
 	<md-content layout="row" layout-wrap>
 		<div flex="25" ng-repeat="nutrition in nutritions | orderBy: 'name'">
@@ -12,8 +20,8 @@
 					</md-card-title-text>
 				</md-card-title>
 				<md-card-actions layout="row" layout-align="end center">
-					<md-button ng-click="setActive(nutrition)">Set Active</md-button>
-					<md-button ng-click="removeDeck(nutrition.$id)">Remove</md-button>
+					<md-button ng-disabled="nutrition.active" ng-click="setActive(nutrition)">Set Active</md-button>
+					<md-button ng-click="removeDeck(nutrition)">Remove</md-button>
 				</md-card-actions>
 			</md-card>
 		</div>

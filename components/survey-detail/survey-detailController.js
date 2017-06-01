@@ -41,8 +41,9 @@ app.controller('SurveyDetailController', ['$scope', '$resource', '$routeParams',
 		$scope.assignSite = {};
 		$scope.assignToNewSite = function() {
 			console.log($scope.assignSite.new.$id, $routeParams.surveyId);
-			Surveys.surveyNewSite($routeParams.surveyId, $scope.assignSite.new.$id);
-			$scope.instancesToShow.push(true);
+			Nutrition.addNutritionSite($scope.assignSite.$id);
+			// Surveys.surveyNewSite($routeParams.surveyId, $scope.assignSite.new.$id);
+			// $scope.instancesToShow.push(true);
 			$scope.assignSite = {};
 		}
 			
@@ -93,13 +94,5 @@ app.controller('SurveyDetailController', ['$scope', '$resource', '$routeParams',
 				labelType: 'percent',
 			}
 		};
-		
-		var idToName = {};
-		$scope.getNameOfSite = function(site_id) {
-			if(!idToName[site_id])
-			{
-					idToName[site_id] = Sites.getNameOfSite(site_id);
-			}
-			return !idToName[site_id];
-		}
+
 }]);

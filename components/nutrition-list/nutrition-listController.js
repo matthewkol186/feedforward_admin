@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('NutritionListController', ['$scope', '$resource', '$location', 'Nutrition', '$firebaseArray', '$firebaseStorage', 'SweetAlert',
-    function ($scope, $resource, $location, Nutrition, $firebaseArray, $firebaseStorage, SweetAlert) {
+app.controller('NutritionListController', ['$scope', '$resource', '$location', 'Nutrition', '$firebaseObject', '$firebaseArray', '$firebaseStorage', 'SweetAlert',
+    function ($scope, $resource, $location, Nutrition, $firebaseObject, $firebaseArray, $firebaseStorage, SweetAlert) {
 		$scope.main.title = 'FeedForward | Nutrition';
 
 		$scope.nutritions = Nutrition.getAllNutritions();
@@ -13,30 +13,21 @@ app.controller('NutritionListController', ['$scope', '$resource', '$location', '
 			$location.path(path);
 		};
 
-		$scope.removeDeck = function (id) {
-			Nutrition.removeNutrition(id);
+		$scope.removeDeck = function (nutrition) {
+			if(nutrition.active) {
+				Nutrition.removeActiveNutrition(nutrition.$id, nutrition.id);
+			}
+			Nutrition.removeNutrition(nutrition.$id);
 		};
 
 		$scope.setActive = function (deck) {
 			SweetAlert.swal("Successfully changed!", deck.name + " is now active.", "success");
-			Nutrition.setActiveNutrition(deck.$id, deck.name);
+			Nutrition.addActiveNutrition(deck.$id, deck.name);
 		};
 
-		$scope.removeActive = function () {
-			SweetAlert.swal({
-					title: "Are you sure?",
-					text: "Confirm deactivation of " + $scope.activeNutrition.name,
-					type: "info",
-					showCancelButton: true,
-					confirmButtonColor: "#DD6B55",
-					confirmButtonText: "Yes, deactivate it!",
-					closeOnConfirm: false
-				},
-				function () {
-					Nutrition.removeActiveNutrition();
-					SweetAlert.swal("Successfully deactivated!", "", "success");
-				});
-		};
+		$scope.removeActive = function (deck) {
+			Nutrition.removeActiveNutrition(deck.$id, deck.id);
+		}
 
 		$scope.uploadNutrition = function () {
 			var uploadTask = $scope.storage.$put($scope.files[0].lfFile);

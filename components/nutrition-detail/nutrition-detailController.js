@@ -9,23 +9,31 @@ app.controller('NutritionDetailController', ['$scope', '$resource', '$routeParam
 
 		var nutritionID = $routeParams.id;
 		$scope.nutrition = Nutrition.getNutritionById(nutritionID);
+		$scope.nutritionSites = Nutrition.getNutritionSites(nutritionID);
 		$scope.images = Nutrition.getImagesById(nutritionID);
 		$scope.sites = Sites.getAllSites();
 
 		$scope.assignSite = {};
 		$scope.assignToNewSite = function () {
 			console.log($scope.assignSite.new.$id, nutritionID);
-			Sites.sendDeckToSite(nutritionID, $scope.assignSite.new.$id);
+			Nutrition.addNutritionSite(nutritionID, $scope.assignSite.new.$id);
 			//$scope.instancesToShow.push(true);
-			Feedback.addNewNutrition(nutritionID, $scope.assignSite.new.$id);
+			//Feedback.addNewNutrition(nutritionID, $scope.assignSite.new.$id);
 			$scope.assignSite = {};
 		}
-		
+
+		$scope.removeActive = function (site) {
+			Nutrition.removeActiveNutrition(nutritionID, site.siteID, site.nutritionSiteID, site.$id);
+		}
+
 		// Upload the photo file selected by the user using a post request to the URL /photos/new
 		$scope.uploadNutrition = function () {
 			var uploadTask = $scope.storage.$put($scope.files[0].lfFile);
 			uploadTask.$complete(function (snapshot) {
-				Nutrition.addNutritionCard(nutritionID, {url: snapshot.downloadURL, text: $scope.newCardText});
+				Nutrition.addNutritionCard(nutritionID, {
+					url: snapshot.downloadURL,
+					text: $scope.newCardText
+				});
 				$scope.newCardText = "";
 				$scope.api.removeAll();
 			});

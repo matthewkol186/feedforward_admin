@@ -12,12 +12,15 @@ app.factory('Sites', function ($firebaseArray, $firebaseObject) {
 		}, 
 		
 		getNameOfSite(site_id) {
-			console.log(site_id);
 			return $firebaseObject(sitesRef.child(site_id).child("metadata").child("name"));
 		},
 		
 		sendDeckToSite(nutritionID, siteID) {
-			sitesRef.child(siteID).update({currFood: nutritionID});
+			return sitesRef.child(siteID).child("currNutrition").push({id: nutritionID}).key;
+		},
+		
+		removeDeckFromSite(nutritionID, siteID, siteDeckID) {
+			return sitesRef.child(siteID).child("currNutrition").child(siteDeckID).remove();
 		},
 	};
 });

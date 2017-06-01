@@ -38,8 +38,10 @@ app.controller('MainController', ['$scope', '$resource', '$rootScope', '$locatio
 		$rootScope.$on('$routeChangeSuccess', function (event, current) {
 			if(current.$$route.originalPath.includes("nutrition")) {
 				$scope.currentNavItem = "nutritionlist";
-			} else {
+			} else if (current.$$route.originalPath.includes("feedback")){
 				$scope.currentNavItem = "feedback";
+			} else if (current.$$route.originalPath.includes("perminfo")){
+				$scope.currentNavItem = "perminfo";
 			}
 		});
 

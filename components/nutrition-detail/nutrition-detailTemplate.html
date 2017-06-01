@@ -1,6 +1,15 @@
 <md-content layout-padding flex id="content">
 	<h1 class="md-display-2">{{nutrition.name}}</h1>
-
+	
+	<h2 class="md-headline">Active Sites</h2>
+	<p ng-show="nutritionSites.length === 0">This deck has not been deployed to a specific site yet.</p>
+	<md-content class="md-padding" layout="column" ng-show="nutritionSites.length > 0">
+		<md-chips ng-model="nutritionSites" readonly="true" md-removable="true" md-on-remove="removeActive($chip)">
+			<md-chip-template>
+				{{$chip.name}}
+			</md-chip-template>
+		</md-chips>
+	</md-content>
 	<h3 class="md-title">Send Nutrition Deck to Site</h3>
 	<form>
 		<md-input-container>

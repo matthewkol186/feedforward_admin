@@ -1,8 +1,8 @@
 'use strict';
 
-app.factory('Nutrition', function ($firebaseArray, $firebaseObject) {
+app.factory('Nutrition', function ($firebaseArray, $firebaseObject, Sites) {
 
-	var nutritions = firebase.database().ref().child("nutrition_info");
+	var nutritions = firebase.database().ref().child("nutritionInfo");
 	var activeNutrition = firebase.database().ref().child("activeNutrition");
 
 	return {
@@ -30,16 +30,36 @@ app.factory('Nutrition', function ($firebaseArray, $firebaseObject) {
 			$firebaseArray(nutritions).$add(newNutrition);
 		},
 		
-		removeActiveNutrition: function removeActiveNutrition() {
-			activeNutrition.update({active: false});
+		removeActiveNutrition: function removeActiveNutrition(id, deckID) {
+			activeNutrition.child(id).remove();
+			nutritions.child(deckID).update({"/active": false});
 		},
 		
 		getActiveNutrition: function getActiveNutrition() {
-			return $firebaseObject(activeNutrition);
+			return $firebaseArray(activeNutrition);
 		},
 		
-		setActiveNutrition: function setActiveNutrition(id, name) {
-			activeNutrition.update({id: id, active: true, name: name});
+		getNutritionSites: function getNutritionSites(nutritionID) {
+			return $firebaseArray(nutritions.child(nutritionID).child("sitesDeployed"));
+		},
+		
+		addNutritionSite: function addNutritionSite(nutritionID, siteID) {
+			var siteDeckID = Sites.sendDeckToSite(nutritionID, siteID);
+			var nameOfSite = Sites.getNameOfSite(siteID);
+			nameOfSite.$loaded(function(data) {
+				console.log(data.$value);
+				nutritions.child(nutritionID).child("sitesDeployed").push({nutritionSiteID: siteDeckID, siteID: siteID, name: data.$value});
+			});
+		},
+		
+		removeNutritionSite: function removeNutritionSite(nutritionID, siteID, siteDeckID, siteObjID) {
+			Sites.removeDeckFromSite(nutritionID, siteID, siteDeckID);
+			nutritions.child(nutritionID).child("sitesDeployed").child(siteObjID).remove();
+		},
+		
+		addActiveNutrition: function addActiveNutrition(id, name) {
+			activeNutrition.push({id: id, name: name});
+			nutritions.child(id).update({"/active": true});
 		},
 	};
 });
