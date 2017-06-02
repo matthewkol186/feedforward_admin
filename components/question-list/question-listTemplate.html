@@ -1,0 +1,45 @@
+<md-content layout-padding>
+	<h1 class="md-title">Targeted Questions</h1>
+	<h2 class="md-headline">Active Questions</h2>
+	<p ng-show="activeQuestions.length === 0">No questions are currently active.</p>
+	<md-content class="md-padding" layout="column" ng-show="activeQuestions.length > 0">
+		<md-chips ng-model="activeQuestions" readonly="true" md-removable="true" md-on-remove="removeActive($chip)">
+			<md-chip-template>
+				{{$chip.text}}
+			</md-chip-template>
+		</md-chips>
+	</md-content>
+	<h1 class="md-headline">Questions</h1>
+
+	<md-content layout="row" layout-wrap>
+		<div flex="25" ng-repeat="question in questions">
+			<md-card ng-click="go('/questions/'+question.$id)">
+				<md-card-content>
+					<p>{{question.question}}
+						<p>
+				</md-card-content>
+				<md-card-actions layout="row" layout-align="end center">
+					<md-button ng-disabled="question.active" ng-click="setActive(question)">Set Active</md-button>
+					<md-button ng-click="removeQuestion(question)">Remove</md-button>
+				</md-card-actions>
+			</md-card>
+		</div>
+		<div flex="30">
+			<md-card>
+				<md-card-content>
+					<h1 class="md-title">Add New Question</h1>
+					<p>Remember to write questions which can be answered on a scale from 1 to 10!</p>
+					<form>
+						<md-input-container style="width:100%">
+							<label>Question</label>
+							<textarea ng-model="newQuestionText" rows=3 required></textarea>
+						</md-input-container>
+						<div>
+							<md-button type="submit" ng-click="uploadQuestion()" ng-disabled="!(newQuestionText)">Submit</md-button>
+						</div>
+					</form>
+				</md-card-content>
+			</md-card>
+		</div>
+	</md-content>
+</md-content>

@@ -33,6 +33,14 @@ app.config(['$routeProvider',
 			templateUrl: 'components/nutrition-detail/nutrition-detailTemplate.html',
 			controller: 'NutritionDetailController'
 		}).
+		when('/questions', {
+			templateUrl: 'components/question-list/question-listTemplate.html',
+			controller: 'QuestionListController'
+		}).
+		when('/questions/:id', {
+			templateUrl: 'components/question-detail/question-detailTemplate.html',
+			controller: 'QuestionDetailController'
+		}).
 		otherwise({
 			redirectTo: '/nutrition'
 		});

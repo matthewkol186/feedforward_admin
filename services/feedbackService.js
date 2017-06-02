@@ -12,12 +12,18 @@ app.factory('Feedback', function ($firebaseArray, $firebaseObject) {
 			return $firebaseObject(feedbacks.child(id));
 		},
 
-		addNewNutrition: function addNewNutrition(nutritionID, siteID) {
-			feedbacks.child(siteID).child("nutrition").push({
-				infoID: nutritionID,
+		addNewQuestion: function addNewQuestion(questionID, siteID) {
+			return feedbacks.child(siteID).child("questions").push({
+				questionID: questionID,
+				active: true,
 				rating: 0,
-				totalRatings: 0
-			});
+				totalRatings: 0,
+				comments: [],
+			}).key;
+		},
+		
+		removeQuestionSite: function removeQuestionSite(questionID, siteID, targetSiteID) {
+			return feedbacks.child(siteID).child("questions").child(targetSiteID).update({"/active": false});
 		},
 	};
 });

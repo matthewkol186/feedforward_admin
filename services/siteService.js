@@ -12,7 +12,7 @@ app.factory('Sites', function ($firebaseArray, $firebaseObject) {
 		}, 
 		
 		getNameOfSite(site_id) {
-			return $firebaseObject(sitesRef.child(site_id).child("metadata").child("name"));
+			return $firebaseObject(sitesRef.child(site_id).child("name"));
 		},
 		
 		sendDeckToSite(nutritionID, siteID) {
@@ -21,6 +21,14 @@ app.factory('Sites', function ($firebaseArray, $firebaseObject) {
 		
 		removeDeckFromSite(nutritionID, siteID, siteDeckID) {
 			return sitesRef.child(siteID).child("currNutrition").child(siteDeckID).remove();
+		},
+		
+		sendQuestionToSite(questionID, siteID) {
+			return sitesRef.child(siteID).child("currQuestion").push({id: questionID, active: true}).key;
+		},
+		
+		deactivateQuestionFromSite(questionID, siteID) {
+			return sitesRef.child(siteID).child("currQuestion").child(questionID).update({"/active": false});
 		},
 	};
 });

@@ -42,6 +42,8 @@ app.controller('MainController', ['$scope', '$resource', '$rootScope', '$locatio
 				$scope.currentNavItem = "feedback";
 			} else if (current.$$route.originalPath.includes("perminfo")){
 				$scope.currentNavItem = "perminfo";
+			} else if (current.$$route.originalPath.includes("questions")){
+				$scope.currentNavItem = "questions";
 			}
 		});
 

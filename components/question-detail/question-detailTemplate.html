@@ -1,0 +1,55 @@
+<md-content layout-padding flex id="content">
+	<h1 class="md-display-1">Question</h1>
+	<h1 class="md-headline">{{question.question}}</h1>
+	<h2 class="md-headline">Active Sites</h2>
+	<p ng-show="questionSites.length === 0">This deck has not been deployed to a specific site yet.</p>
+	<md-content class="md-padding" layout="column" ng-show="questionSites.length > 0">
+		<md-chips ng-model="questionSites" readonly="true" md-removable="true" md-on-remove="removeActive($chip)">
+			<md-chip-template>
+				{{$chip.name}}
+			</md-chip-template>
+		</md-chips>
+	</md-content>
+	<h3 class="md-title">Send Question to Site</h3>
+	<form>
+		<md-input-container>
+			<label>Select a site</label>
+			<md-select ng-model="assignSite.new">
+				<md-option ng-repeat="site in sites" ng-value="site">{{site.name}}</md-option>
+			</md-select>
+		</md-input-container>
+		<md-button class="md-raised md-primary" ng-click="assignToNewSite()">Send New Site</md-button>
+	</form>
+	<!--
+	<h2 class="md-display-1">Deck Images</h2>
+	<md-content layout="row" layout-wrap>
+		<div flex="30" ng-repeat="image in images track by $index">
+			<md-card>
+				<img ng-src="{{image.url}}">
+				<md-card-content>
+					<p>{{image.text}}</p>
+				</md-card-content>
+				<md-card-actions layout="row" layout-align="end center">
+					<md-button ng-click="images.$remove($index)">Remove</md-button>
+				</md-card-actions>
+			</md-card>
+		</div>
+		<div flex="30">
+			<md-card>
+				<md-card-content>
+					<form>
+						<lf-ng-md-file-input lf-files="files" lf-api="api" ng-disabled="disabled" accept="image/*"></lf-ng-md-file-input>
+						<md-input-container style="width:100%">
+							<label>Nutrition Description</label>
+							<textarea ng-model="newCardText" rows=5 required></textarea>
+						</md-input-container>
+
+						<div>
+							<md-button type="submit" ng-click="uploadNutrition()" ng-disabled="!(files[0])">Submit</md-button>
+						</div>
+					</form>
+				</md-card-content>
+			</md-card>
+		</div>
+	</md-content> -->
+</md-content>

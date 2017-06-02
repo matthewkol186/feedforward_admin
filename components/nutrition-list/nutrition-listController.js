@@ -27,6 +27,7 @@ app.controller('NutritionListController', ['$scope', '$resource', '$location', '
 
 		$scope.removeActive = function (deck) {
 			Nutrition.removeActiveNutrition(deck.$id, deck.id);
+			$scope.activeNutrition = Nutrition.getActiveNutrition();
 		}
 
 		$scope.uploadNutrition = function () {
