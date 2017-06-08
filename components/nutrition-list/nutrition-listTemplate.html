@@ -11,7 +11,7 @@
 	</md-content>
 
 	<md-content layout="row" layout-wrap>
-		<div flex="25" ng-repeat="nutrition in nutritions | orderBy: 'name'">
+		<div flex="20" ng-repeat="nutrition in nutritions | orderBy: 'name'">
 			<md-card>
 				<img ng-src="{{nutrition.url}}" ng-click="go('/nutrition/'+nutrition.$id)">
 				<md-card-title ng-click="go('/nutrition/'+nutrition.$id)">

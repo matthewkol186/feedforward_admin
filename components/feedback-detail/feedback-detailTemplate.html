@@ -17,31 +17,35 @@
 	<div ng-show="siteSelected">
 		<h1>{{currentSite.name}}</h1>
 		<h2>Average rating: {{siteFeedback.avgRating | number:1}}/5</h2>
+		<h1 class="md-headline">Demographic Information</h1>
+		<p><b>Address:</b> {{currentSite.address}}</p>
+		<p><b>Member count:</b> {{currentSite.memberCount}}</p>
+		<p><b>Type of distribution:</b> {{currentSite.type}}</p>
+		<p><b>Languages spoken:</b> <span ng-repeat="language in currentSite.languages track by $index"><span ng-show="$index !== 0">, </span>{{language}}</span></p>
 		<h2 class="md-display-1">Feedback</h2>
-		<md-card ng-repeat="comment in siteFeedback.comments">
+		<md-card ng-repeat="comment in currentComments">
 			<md-card-content>
 				<p>{{comment}}</p>
 			</md-card-content>
 		</md-card>
-		
+
 		<h2 class="md-display-1">Nutrition Education Results</h2>
 		<md-content layout="row" layout-wrap>
-		<div flex="33" ng-repeat="nutrition in siteFeedback.nutrition track by $index">
-			<md-card>
-				<img ng-src="{{nutritionInfo[$index].url}}">
-				<md-card-title>
-					<md-card-title-text>
-						<span class="md-headline">{{nutritionInfo[$index].name}}</span>
-					</md-card-title-text>
-				</md-card-title>
-				<md-card-content>
-					<h3 class="md-subhead">{{nutritionInfo[$index].question}}</h3>
-					<h3><b>{{nutrition.rating | number:1}}</b></h3>
-					<p><i>Based on feedback from {{nutrition.totalRatings}} Health Ambassadors</i></p>
-				</md-card-content>
-			</md-card>
-		</div>
-	</md-content>
+			<div flex="33" ng-repeat="question in siteFeedback.questions track by $index">
+				<md-card>
+					<md-card-title>
+						<md-card-title-text>
+							<span class="md-headline">{{feedbackInfo[$index].question}}</span>
+						</md-card-title-text>
+					</md-card-title>
+					<md-card-content>
+						<h3 class="md-subhead">On a scale from 1 to 10:</h3>
+						<h3><b ng-show="question.totalRatings !== 0">{{question.rating | number:1}}</b><b ng-show="question.totalRatings === 0">N/A</b></h3>
+						<p><i>Based on feedback from {{question.totalRatings}} Health Ambassadors</i></p>
+					</md-card-content>
+				</md-card>
+			</div>
+		</md-content>
 	</div>
 	<!--<div ng-repeat="question in survey.questions track by $index">
 		<h3>{{question.question}}</h3>

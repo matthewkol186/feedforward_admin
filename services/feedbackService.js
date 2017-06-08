@@ -11,6 +11,10 @@ app.factory('Feedback', function ($firebaseArray, $firebaseObject) {
 		getFeedbackById: function getFeedbackById(id) {
 			return $firebaseObject(feedbacks.child(id));
 		},
+		
+		getCommentsById: function getFeedbackById(id) {
+			return $firebaseObject(feedbacks.child(id).child("comments"));
+		},
 
 		addNewQuestion: function addNewQuestion(questionID, siteID) {
 			return feedbacks.child(siteID).child("questions").push({
