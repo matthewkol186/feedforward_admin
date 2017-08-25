@@ -1,0 +1,417 @@
+<!doctype html>
+<html>
+  <head>
+    <%= wicked_pdf_stylesheet_link_tag "nonprofit_report" -%>
+    <%= stylesheet_link_tag "http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css", media: "all", "data-turbolinks-track" => true %>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col col-3 offset-1 fw-logo-header">
+          <%# NOTE: wicked image helper doesn't work in prod so need to manually link to filepath %>
+          <%= image_tag "file:///#{Rails.root.join('public', 'logo.png')}", class: 'img-fluid' %>
+        </div>
+      </div>
+    </div>
+    <div class="container fw-header-container">
+      <div class="row">
+        <div class="col col-10 offset-1 fw-header">
+          <h1><%= @org.full_name %></h1>
+          <h2>FreeWill Monthly Report: <%= OrgReportPresenter.format_month_year_full(1.month.ago) %> </h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col col-10 offset-1 fw-hug-text">
+          <p>Welcome to your monthly report on planned gifts made through FreeWill! We're happy to share this with you so you can keep track of gifts over time and thank your donors for their generosity.</p>
+          <p>If you're curious about how some of these numbers are calculated, the last page of this document contains more information about how this report was assembled. If you have any questions, please don't hesitate to reach out to us at <a href="mailto:hello@freewill.com">hello@freewill.com</a>. We're always looking for feedback to make this experience better for you.</p>
+        </div>
+      </div>
+      <% start_date = 1.month.ago.beginning_of_month %>
+      <% end_date = 1.month.ago.end_of_month %>
+      <div class="row">
+        <div class="col col-10 offset-1 fw-info-section">
+          <div class="row fw-info-header">
+            <div class="col col-12">
+              <h1><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Last Month </h1>
+            </div>
+          </div>
+          <div class="row fw-stats-row">
+            <div class="col col-4 fw-big-number">
+              <h2><%= OrgReportPresenter.formatted_number(@analytics.num_bequests(start_date, end_date)) %></h2>
+              <h3>bequests made</h2>
+            </div>
+            <div class="col col-4 fw-big-number">
+              <h2><%= OrgReportPresenter.formatted_cash_amount(@analytics.sum_of_bequests(start_date, end_date)) %></h2>
+              <h3>pledged in bequests</h2>
+            </div>
+
+            <div class="col col-4 fw-big-number">
+              <h2><%= OrgReportPresenter.formatted_number(@analytics.num_donors_served(start_date, end_date)) %></h2>
+              <h3>donors served</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 offset-1 fw-info-section">
+          <div class="row fw-info-header">
+            <div class="col col-12">
+              <h1><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Progress to Date </h1>
+            </div>
+          </div>
+          <div class="row fw-stats-row">
+            <div class="col col-4 fw-big-number">
+              <h2><%= OrgReportPresenter.formatted_number(@analytics.num_bequests) %></h2>
+              <h3>bequests made</h2>
+            </div>
+            <div class="col col-4 fw-big-number">
+              <h2><%= OrgReportPresenter.formatted_cash_amount(@analytics.sum_of_bequests) %></h2>
+              <h3>pledged in bequests</h2>
+            </div>
+
+            <div class="col col-4 fw-big-number">
+              <h2><%= OrgReportPresenter.formatted_number(@analytics.num_donors_served) %></h2>
+              <h3>donors served</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 offset-1 fw-info-section">
+          <div class="row fw-info-header">
+            <div class="col col-12">
+              <h1><i class="fa fa-list-ol" aria-hidden="true"></i>&nbsp;Key Stats </h1>
+            </div>
+          </div>
+          <div class="row fw-stats-row">
+            <div class="col col-6 fw-big-number">
+              <h2><%= OrgReportPresenter.formatted_cash_amount(@analytics.average_bequest_size) %></h2>
+              <h3>average bequest size</h2>
+            </div>
+            <div class="col col-6 fw-big-number">
+              <h2><%= OrgReportPresenter.formatted_percentage(@analytics.percent_bequest) %></h2>
+              <h3>percentage of wills with bequests</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <canvas class="fw-chart-src" id="bequestValuesChart" width="1800" height="1200"></canvas>
+      <canvas class="fw-chart-src" id="bequestNumbersChart" width="1800" height="1200"></canvas>
+      <canvas class="fw-chart-src" id="willNumbersChart" width="1800" height="1200"></canvas>
+
+      <div class="fw-charts">
+        <h1>Trends</h1>
+        <p>Here you'll find graphs to help contextualize last month's fundraising through FreeWill with data on your progress over time. With this data, you'll be able to make more informed judgments on whether fundraising campaigns are working and how to best engage your donor base.</p>
+        <div class="row fw-chart-row">
+          <div class="col col-10 offset-1">
+            <h1 class="fw-image-title">Estimated Value of Bequests</h1>
+            <img id="bequestValues" class="img-fluid"></img>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-5 offset-1">
+            <h1 class="fw-image-title">Number of Bequests</h1>
+            <img id="bequestNumbers" class="img-fluid"></img>
+          </div>
+          <div class="col col-5">
+            <h1 class="fw-image-title">Number of Wills Made</h1>
+            <img id="willNumbers" class="img-fluid"></img>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row fw-donor-list">
+        <div class="col col-10 offset-1">
+          <h1> Donors </h1>
+          <div class="fw-pro-tip">
+            <h2><i class="fa fa-star" aria-hidden="true"></i>&nbsp; FreeWill Pro-Tip</h2>
+            <p>After a donor has made a gift, we suggest sending a follow up email introducing yourself and thanking them for their generosity. Some suggestions on additional gestures include:</p>
+            <ul>
+              <li>Mailing a handwritten thank you note</li>
+              <li>Setting up a phone call to learn why they made a gift</li>
+              <li>Asking if they'd be willing to share their story on your website or with their friends</li>
+              <li>Welcoming him/her into your legacy society (and into the family!)</li>
+              <li>Inviting them and their family to an appreciation luncheon or reception</li>
+            </ul>
+          </div>
+          <div class="fw-donor-columns fw-column-headers">
+            <div class="fw-date-col">
+              <p>Will Date</p>
+            </div>
+            <div class="fw-name-col">
+              <p>Name</p>
+            </div>
+            <div class="fw-email-col">
+              <p>Email</p>
+            </div>
+            <div class="fw-birth-col">
+              <p>Birth Year (Age)</p>
+            </div>
+            <div class="fw-bequest-col">
+              <p>Left Gift</p>
+            </div>
+            <div class="fw-amount-col">
+              <p>Bequest Amount</p>
+            </div>
+            <div class="fw-type-col">
+              <p>Bequest Type</p>
+            </div>
+          </div>
+          <% @analytics.donor_wills(start_date, end_date).each do |will| %>
+            <div class="fw-donor-columns">
+              <div class="fw-date-col">
+                <p><%= OrgReportPresenter.format_date(will.created_at) %></p>
+              </div>
+              <div class="fw-name-col">
+                <p><%= will.name %></p>
+              </div>
+              <div class="fw-email-col">
+                <p class="fw-word-wrap"><%= will.email %></p>
+              </div>
+              <div class="fw-birth-col">
+                <p><%= OrgReportPresenter.birth_year(will) %></p>
+              </div>
+              <% bequest = OrgReportPresenter.bequest_to_org(will, @program_ids) %>
+              <div class="fw-bequest-col">
+                <p> Yes </p>
+              </div>
+              <div class="fw-amount-col">
+                <p> <%= OrgReportPresenter.formatted_cash_amount(@analytics.estimated_value(bequest).round(2)) %> </p>
+              </div>
+              <div class="fw-type-col">
+                <p> <%= OrgReportPresenter.gift_description(bequest) %> </p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row fw-appendix">
+        <div class="col col-10 offset-1">
+          <div class="fw-faq-section">
+            <h1>Frequently Asked Questions</h1>
+            <h2>How are bequest values calculated?</h2>
+            <p>Donors are able to leave either specific amounts or residual gifts. Specific amounts are tracked at face value. Residual gifts are calculated by multiplying the designated percentage by the average self-reported value of their estate.</p>
+            <h2>Are these gifts revocable?</h2>
+            <p>Yes. Once a donor has written a will, he/she has the option to update or revise their will at a later date. We recommend continuing to maintain a relationship with the donor over their lifetime and making them feel appreciated for their gift.</p>
+            <h2>Are these gifts restricted?</h2>
+            <p>No. Gifts left through FreeWill are unrestricted, unless otherwise specified by the nonprofit. However, we recommend scheduling a follow-up conversation with your donors to ensure that their intentions are known and their gifts can make the impact they hope to create.</p>
+            <h2>What does "donors served" mean?</h2>
+            <p>We consider anyone who has donated to your organization or used your referral link to create a will as a donor served. Regardless of whether they leave bequests, you're helping people plan for the future while saving them time, money, and stress. We want to make sure you know how many people you've impacted by using FreeWill!</p>
+            <h2>Why can't I see the name, email, or birthdate for certain donors?</h2>
+            <p>We ask all donors for their permission before sharing their personal identifiable information with organizations. If a donor does not provide us permission, we cannot legally provide any of their identifiable information to clients, though we can still provide information about the estimated value of their bequest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    // Setup for Chart.js
+    var TOTAL_CHARTS = 3;
+    var numChartsRendered = 0;
+    var fillColor = "#2A5475";
+    var monthFillColor = "#4199B8";
+    var fillColors = [fillColor, fillColor, fillColor, monthFillColor];
+
+    // Setting global defaults
+    Chart.defaults.global.defaultFontFamily = "'Open Sans'";
+    Chart.defaults.global.defaultFontSize = 48;
+    Chart.defaults.global.tooltips.enabled = false;
+    Chart.defaults.global.legend.display = false;
+
+    var chartDoneRendering = function(){
+      numChartsRendered++;
+      if(numChartsRendered === TOTAL_CHARTS){
+        // TODO: Make this method more elegant
+        var beqValCanvas = document.getElementById("bequestValuesChart");
+        document.getElementById("bequestValues").setAttribute('src',beqValCanvas.toDataURL('image/png'));
+
+        var beqNumCanvas = document.getElementById("bequestNumbersChart");
+        document.getElementById("bequestNumbers").setAttribute('src',beqNumCanvas.toDataURL('image/png'));
+
+        var willNumCanvas = document.getElementById("willNumbersChart");
+        document.getElementById("willNumbers").setAttribute('src', willNumCanvas.toDataURL('image/png'));
+
+        window.status = "DONE";
+      }
+    }
+
+    var formatMoney = function(amt) {
+      amt = amt.toFixed(0) + "";
+      var amt_with_commas = "";
+      for(var i = 0; i<amt.length; i++) {
+        if(i%3 === 0 && i !== 0) {
+          amt_with_commas = "," + amt_with_commas;
+        }
+        amt_with_commas = amt[amt.length - 1 - i] + amt_with_commas;
+      }
+      return "$" + amt_with_commas;
+    }
+
+    var beq_val_array = <%= @analytics.bequests_per_prev_month(4).to_json.html_safe %>.map(Number);
+    var beq_val_ctx = document.getElementById("bequestValuesChart").getContext('2d');
+    var bequestValueChart = new Chart(beq_val_ctx, {
+        type: 'bar',
+        data: {
+            labels: <%= OrgReportPresenter.prev_month_labels(4).to_json.html_safe %>,
+            datasets: [{
+                data: beq_val_array,
+                backgroundColor: fillColors,
+            }]
+        },
+        options: {
+          events: [],
+          responsive: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                callback: function(label, index, labels) {
+                    return formatMoney(label);
+                },
+                suggestedMax: Math.max.apply(null, beq_val_array) + 1000000,
+              }
+            }]
+          },
+          title: {
+            display: false,
+          },
+          animation: {
+            onComplete: function(animation){
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset)
+              {
+                  for (var i = 0; i < dataset.data.length; i++) {
+                      for(var key in dataset._meta)
+                      {
+                          var model = dataset._meta[key].data[i]._model;
+                          ctx.fillText(formatMoney(dataset.data[i]), model.x, model.y - 5);
+                      }
+                  }
+              });
+              chartDoneRendering();
+            }
+          }
+        }
+    });
+
+    var beq_num_array = <%= @analytics.num_bequests_per_prev_month(4).to_json.html_safe %>;
+    var beq_num_ctx = document.getElementById("bequestNumbersChart").getContext('2d');
+    var bequestNumbersChart = new Chart(beq_num_ctx, {
+        type: 'bar',
+        data: {
+            labels: <%= OrgReportPresenter.prev_month_labels(4).to_json.html_safe %>,
+            datasets: [{
+                data: beq_num_array,
+                backgroundColor: fillColors,
+            }]
+        },
+        options: {
+          events: [],
+          responsive: false,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      suggestedMax: Math.max.apply(null, beq_num_array) + 5,
+                      fontSize: 96,
+                  }
+              }],
+              xAxes: [{
+                  ticks: {
+                      fontSize: 96,
+                  }
+              }]
+          },
+          title: {
+            display: false,
+          },
+          animation: {
+            onComplete: function(animation){
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset)
+              {
+                  for (var i = 0; i < dataset.data.length; i++) {
+                      for(var key in dataset._meta)
+                      {
+                          var model = dataset._meta[key].data[i]._model;
+                          ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                      }
+                  }
+              });
+              chartDoneRendering();
+            }
+          }
+        }
+    });
+
+    var will_num_array = <%= @analytics.num_wills_per_prev_month(4).to_json.html_safe %>;
+    var will_num_ctx = document.getElementById("willNumbersChart").getContext('2d');
+    var willNumbersChart = new Chart(will_num_ctx, {
+        type: 'bar',
+        data: {
+            labels: <%= OrgReportPresenter.prev_month_labels(4).to_json.html_safe %>,
+            datasets: [{
+                data: will_num_array,
+                backgroundColor: fillColors,
+            }]
+        },
+        options: {
+          events: [],
+          responsive: false,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      suggestedMax: Math.max.apply(null, beq_num_array) + 5,
+                      fontSize: 96,
+                  }
+              }],
+              xAxes: [{
+                  ticks: {
+                      fontSize: 96,
+                  }
+              }]
+          },
+          title: {
+            display: false,
+          },
+          animation: {
+            onComplete: function(animation){
+              var ctx = this.chart.ctx;
+              ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+
+              this.data.datasets.forEach(function (dataset)
+              {
+                  for (var i = 0; i < dataset.data.length; i++) {
+                      for(var key in dataset._meta)
+                      {
+                          var model = dataset._meta[key].data[i]._model;
+                          ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                      }
+                  }
+              });
+              chartDoneRendering();
+            }
+          }
+        }
+    });
+
+    </script>
+  </body>
+</html>

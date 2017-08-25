@@ -1,0 +1,26 @@
+<md-content layout-padding layout="row" layout-align="center center" layout-fill>
+
+  <md-card>
+   <md-card-content>
+     <h2>Log in to FeedForward Admin</h2>
+     <p ng-show="loginFailed">Uh oh! We were unable to log you in. Please try again!</p>
+     <form name="projectForm">
+
+       <md-input-container class="md-block">
+        <label>Email</label>
+        <input required type="email" ng-model="email" />
+      </md-input-container>
+
+      <md-input-container class="md-block">
+       <label>Password</label>
+       <input required type="password" ng-model="password" />
+     </md-input-container>
+
+     <div>
+        <md-button type="submit" ng-click="signIn()">Log In</md-button>
+      </div>
+    </form>
+   </md-card-content>
+  </md-card>
+
+</md-content>

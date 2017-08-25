@@ -25,6 +25,7 @@
 	<script src="services/feedbackService.js"></script>
 	<script src="services/permanentInfoService.js"></script>
 	<script src="services/questionService.js"></script>
+	<script src="services/authService.js"></script>
 
 	<script src="mainController.js"></script>
 	<link rel="stylesheet" type="text/css" href="main.css" />
@@ -37,21 +38,24 @@
 
 	<script src="components/nutrition-detail/nutrition-detailController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/nutrition-detail/nutrition-detail.css" />
-	
+
 	<script src="components/question-list/question-listController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/question-list/question-list.css" />
 
 	<script src="components/question-detail/question-detailController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/question-detail/question-detail.css" />
-	
+
 	<script src="components/feedback-detail/feedback-detailController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/feedback-detail/feedback-detail.css" />
-	
+
 	<script src="components/permanent-info/permanent-infoController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/permanent-info/permanent-info.css" />
-	
+
 	<script src="components/permanent-info-detail/permanent-info-detailController.js"></script>
 	<link rel="stylesheet" type="text/css" href="components/permanent-info-detail/permanent-info-detail.css" />
+
+	<script src="components/auth/authController.js"></script>
+	<link rel="stylesheet" type="text/css" href="components/auth/auth.css" />
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -68,11 +72,11 @@
 	<script src="bower_components/firebase/firebase.js"></script>
 	<script src="bower_components/angularfire/dist/angularfire.min.js"></script>
 	<link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css">
-	
+
 	<!-- angular filepicker -->
 	<link rel="stylesheet" href="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.min.css">
 	<script src="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.min.js"></script>
-	
+
 	<!-- sweetalert -->
 	<script src="bower_components/ngSweetAlert/SweetAlert.min.js"></script>
 	<script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
@@ -82,7 +86,7 @@
 
 <body layout="column">
 
-	<md-toolbar layout-padding layout="row">
+	<md-toolbar layout-padding layout="row" ng-if="main.loggedIn">
 		<div class="md-toolbar-tools">
 			<md-button class="md-icon-button" aria-label="Settings" ng-disabled="true" style="width:190px; border-radius:0%">
 				<img class="png-image" src="feedforward_logo.png" style="height: 25px; width: auto">
@@ -92,16 +96,11 @@
 			<md-button class="md-raised" ng-show="main.loggedIn" ng-click="logout()" aria-label="Logout">Logout</md-button>
 		</div>
 	</md-toolbar>
-	<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+	<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" ng-if="main.loggedIn">
 		<md-nav-item md-nav-href="/#/nutrition" name="nutritionlist">Nutrition</md-nav-item>
 		<md-nav-item md-nav-href="/#/perminfo" name="perminfo">Static Information</md-nav-item>
 		<md-nav-item md-nav-href="/#/questions" name="questions">Questions</md-nav-item>
 		<md-nav-item md-nav-href="/#/feedback" name="feedback">Feedback</md-nav-item>
-		<!--<md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
-      You can also add options for the <code>ui-sref-opts</code> attribute.
-      <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
-        Page Six
-      </md-nav-item>-->
 	</md-nav-bar>
 	<div ng-view class="container" flex layout="row"></div>
 

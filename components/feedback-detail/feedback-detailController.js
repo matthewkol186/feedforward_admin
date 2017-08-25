@@ -13,11 +13,8 @@ app.controller('FeedbackDetailController', ['$scope', '$resource', '$routeParams
 			$scope.currentSite = site;
 			$scope.currentComments = Feedback.getCommentsById(site.$id);
 			$scope.siteFeedback = Feedback.getFeedbackById(site.feedbackObj);
-			console.log(site.$id, "lol", $scope.siteFeedback);
 			$scope.siteFeedback.$loaded(function (data) {
-				console.log(data);
 				for (var n in data.questions) {
-					console.log(n, data.questions[n]);
 					$scope.feedbackInfo.push(Questions.getQuestionById(data.questions[n].questionID));
 				}
 			});

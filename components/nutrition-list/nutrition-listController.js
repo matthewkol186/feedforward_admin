@@ -6,8 +6,6 @@ app.controller('NutritionListController', ['$scope', '$resource', '$location', '
 
 		$scope.nutritions = Nutrition.getAllNutritions();
 		$scope.activeNutrition = Nutrition.getActiveNutrition();
-		var storageRef = firebase.storage().ref("images/decks"); // for uploading
-		$scope.storage = $firebaseStorage(storageRef);
 
 		$scope.go = function (path) {
 			$location.path(path);
@@ -22,7 +20,7 @@ app.controller('NutritionListController', ['$scope', '$resource', '$location', '
 
 		$scope.setActive = function (deck) {
 			SweetAlert.swal("Successfully changed!", deck.name + " is now active.", "success");
-			Nutrition.addActiveNutrition(deck.$id, deck.name);
+			Nutrition.addActiveNutrition(deck);
 		};
 
 		$scope.removeActive = function (deck) {
@@ -30,8 +28,18 @@ app.controller('NutritionListController', ['$scope', '$resource', '$location', '
 			$scope.activeNutrition = Nutrition.getActiveNutrition();
 		}
 
+    var randomString = function(length) {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for(var i = 0; i < length; i++) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        return text;
+    }
+
 		$scope.uploadNutrition = function () {
-			var uploadTask = $scope.storage.$put($scope.files[0].lfFile);
+      var storageRef = firebase.storage().ref(randomString(20)); // for uploading
+			var uploadTask = ($firebaseStorage(storageRef)).$put($scope.files[0].lfFile);
 			uploadTask.$complete(function (snapshot) {
 				Nutrition.addNutrition({
 					url: snapshot.downloadURL,

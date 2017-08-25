@@ -1,0 +1,1005 @@
+{
+  "activeNutrition" : {
+    "-KrXb2e0bVRjGPbOGTHI" : {
+      "id" : "-Kr7n2sKAABH1s5_dmx_",
+      "name" : "No to Sugar, Yes to infused water"
+    },
+    "-KsI5NFcRGJZnB1Ybl6a" : {
+      "id" : "0",
+      "name" : "Asparagus"
+    }
+  },
+  "activeQuestions" : {
+    "-KlaTkTKnuYjct5Hoi_n" : {
+      "id" : "399a9sd",
+      "text" : "Do clients seem to enjoy the food demo?"
+    },
+    "-Km3Lu0mpUqRFayaZSFn" : {
+      "id" : "933askdja",
+      "text" : "How much did clients seem to know about broccoli?"
+    },
+    "-Km3M0UB1DvD5q5ebN9g" : {
+      "id" : "99daas0d",
+      "text" : "How well do the clients seem like they know the basics of MyPlate?"
+    },
+    "-KomfdmELb_h-Hc76Oya" : {
+      "id" : "robert1234",
+      "text" : "How much did clients seem to know about brown rice?"
+    }
+  },
+  "feedback" : [ {
+    "avgRating" : 3.6842105263157894,
+    "comments" : [ "Food demo went well", null, "I had a really nice conversation about brown rice", "The butternut squash looked over-ripe", "The site had no electric outlets", "Clients were very engaged", "", "Good stuf", "Good", "The Indian food is dank", "Eee" ],
+    "questions" : {
+      "-Klak4Dje-t3AZDbG61g" : {
+        "active" : true,
+        "questionID" : "99daas0d",
+        "rating" : 6.25,
+        "totalRatings" : 8
+      },
+      "-Km3Lo1VlpZsmq7-L1Jw" : {
+        "active" : true,
+        "questionID" : "399a9sd",
+        "rating" : 2.1666666666666665,
+        "totalRatings" : 6
+      }
+    },
+    "totalRatings" : 19
+  }, {
+    "avgRating" : 4.9,
+    "comments" : {
+      "asdf993" : "Wish there were more meats and proteins."
+    },
+    "questions" : {
+      "-Km3M7OQvgJvA-sm7y6x" : {
+        "active" : true,
+        "questionID" : "-Km3M5AeLPeIaZpyTK0R",
+        "rating" : 0,
+        "totalRatings" : 0
+      },
+      "-Km4epDyE-lgYq3gLLje" : {
+        "active" : true,
+        "questionID" : "399a9sd",
+        "rating" : 0,
+        "totalRatings" : 0
+      }
+    },
+    "totalRatings" : 32
+  }, null, {
+    "avgRating" : 3.5,
+    "comments" : {
+      "99das" : "Super great site chair - very helpful!"
+    },
+    "totalRatings" : 24
+  }, {
+    "avgRating" : 4.5932,
+    "comments" : {
+      "99dsas9e" : "Yummy produce - very healthy!",
+      "9da9s33jf" : "Line moved really quickly - didn't have to wait as long as I usually have to at other sites."
+    },
+    "totalRatings" : 34
+  } ],
+  "feedbackQuestions" : {
+    "399a9sd" : {
+      "active" : true,
+      "question" : "Do clients seem to enjoy the food demo?",
+      "sitesDeployed" : {
+        "-Km3Lo1Yu5UO469pO0iF" : {
+          "name" : "Robert Sanders Elementary School",
+          "siteID" : "0",
+          "targetSiteID" : "-Km3Lo1VlpZsmq7-L1Jw"
+        },
+        "-Km4epE3JVejGHVTe-cl" : {
+          "name" : "St Maria Goretti Church",
+          "siteID" : "1",
+          "targetSiteID" : "-Km4epDyE-lgYq3gLLje"
+        }
+      }
+    },
+    "933askdja" : {
+      "active" : true,
+      "question" : "How much did clients seem to know about broccoli?",
+      "sitesDeployed" : {
+        "a388dds" : {
+          "name" : "Robert Sanders Elementary School",
+          "siteID" : "0",
+          "targetSiteID" : "jsa9de"
+        }
+      }
+    },
+    "99daas0d" : {
+      "active" : true,
+      "question" : "How well do the clients seem like they know the basics of MyPlate?",
+      "sitesDeployed" : {
+        "-Km3LxeWOYyz6giP06lD" : {
+          "name" : "Campbell Community Center ",
+          "siteID" : "2",
+          "targetSiteID" : "-Km3LxeP9XLDp4eLB_4t"
+        }
+      }
+    },
+    "robert1234" : {
+      "active" : true,
+      "question" : "How much did clients seem to know about brown rice?",
+      "sitesDeployed" : {
+        "-Km3M7OSrp8xcC9kE8rW" : {
+          "name" : "St Maria Goretti Church",
+          "siteID" : "1",
+          "targetSiteID" : "-Km3M7OQvgJvA-sm7y6x"
+        }
+      }
+    }
+  },
+  "nutritionInfo" : {
+    "0" : {
+      "active" : true,
+      "images" : [ {
+        "text" : "Asparagus preparation",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/asparagus2.png?alt=media&token=bed08faa-92a2-4ff9-a037-430ff5b82233"
+      }, {
+        "text" : "Asparagus storage",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/asparagus3.png?alt=media&token=0514720a-27e4-4e27-8b56-b77522e5f7c1"
+      }, {
+        "text" : "Asparagus health benefits",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/asparagus4.png?alt=media&token=2847c981-8f27-493f-80d7-fb4f4e6b0921"
+      } ],
+      "name" : "Asparagus",
+      "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/asparagus1.png?alt=media&token=92ccad7c-1613-4758-a28e-9b9c633507ac"
+    },
+    "1" : {
+      "active" : false,
+      "images" : [ {
+        "text" : "Broccoli health benefits",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/broccoli2.png?alt=media&token=1a689627-7d54-4cf3-8789-2f9f56fca1dd"
+      }, {
+        "text" : "Broccoli storage",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/broccoli3.png?alt=media&token=9529a3a4-3344-48bf-8e58-1984c0bcc0ec"
+      }, {
+        "text" : "Broccoli preparation",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/broccoli4.png?alt=media&token=409d7050-d425-4cff-94ff-e008f5fd738e"
+      }, {
+        "text" : "Broccoli recipe ideas",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/broccoli5.png?alt=media&token=a8037f65-d7e6-499e-a0ef-83541b33f66b"
+      } ],
+      "name" : "Broccoli",
+      "sitesDeployed" : {
+        "-KqtKCsxvU4l8frLgw59" : {
+          "name" : "Garder Commuinity Center",
+          "nutritionSiteID" : "-KqtKCswvU5CdnD6dRHZ",
+          "siteID" : "1"
+        }
+      },
+      "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/broccoli1.png?alt=media&token=9c5391c0-519a-4494-9ef7-07b045a34542"
+    },
+    "2" : {
+      "active" : false,
+      "images" : {
+        "0" : {
+          "text" : "Celery health benfits",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/celery2.png?alt=media&token=9355dd78-b3c2-455d-aa18-a55667a9ca33"
+        },
+        "1" : {
+          "text" : "Celery storage",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/celery3.png?alt=media&token=39ed9343-e659-4473-aa81-2e80e63ef2bf"
+        },
+        "2" : {
+          "text" : "Celery recipe ideas",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/celery4.png?alt=media&token=a21f8743-bac1-4c3d-8712-f0d162b8fce0"
+        },
+        "-Km4YydAiSyzmrhvd9q0" : {
+          "text" : "yummm",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=551db641-7c4e-4f18-ad4d-4a1169d94717"
+        }
+      },
+      "name" : "Celery",
+      "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/celery1.png?alt=media&token=253944a4-4b77-4355-94a8-15ffb112ecc3"
+    },
+    "3" : {
+      "active" : false,
+      "images" : {
+        "0" : {
+          "text" : "",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/snacks1.png?alt=media&token=498161e6-a071-41be-94a3-326592539a96"
+        },
+        "1" : {
+          "text" : "",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/snacks2.png?alt=media&token=9b73aab3-09b7-4eeb-9e93-9cc02eaa9e17"
+        },
+        "2" : {
+          "text" : "",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/snacks3.png?alt=media&token=a69ec9c9-a708-489f-bda0-a4b50f63bdce"
+        },
+        "3" : {
+          "text" : "",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/snacks4.png?alt=media&token=6c704ae5-70c0-484d-b300-e0fab14c584a"
+        },
+        "-Kr7mMOAZ7xPvVwZhVCs" : {
+          "text" : "EDUCATOR SAYS: We would like to share some snack ideas with you. Snacks can help children get the nutrients needed to grow and maintain a healthy weight:\n You can store sliced vegetables in the refrigerator and serve with dips like hummus or low-calorie dressing.\nFruits are quick and easy. Offer whole fruit and limit the amount of juice. \nA single-serving container of low-fat or fat-free yogurt or individually wrapped string cheese can be just enough for an after-school snack.\nPlanning is the key for all that! Always plan ahead and have snacks ready to go in your bag before leaving home.",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=929c5bbf-9879-4a47-a4dd-b0f20e2a1a6a"
+        },
+        "-KrXfAJagka5xgyO2pGH" : {
+          "text" : "Educator says: Watermelon is also a great snack! Make sure to pack some chopped watermelon and bring with you so you can eat during the day when you feel hungry. You will eat healthier and save money!",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=44302106-173c-4a3c-963e-012f227b98ce"
+        }
+      },
+      "name" : "Snacks",
+      "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/snacks.png?alt=media&token=215a3536-b4dc-46ba-aac6-087cec413967"
+    },
+    "4" : {
+      "active" : false,
+      "images" : [ {
+        "text" : "Winter Squash benefits",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/WinterSquash2.jpg?alt=media&token=794faa2b-f316-40b7-baa3-640a53db1a71"
+      }, {
+        "text" : "Winter squash storage",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/WinterSquash3.jpg?alt=media&token=254419d2-2f0b-4755-a695-655c2a852c4e"
+      }, {
+        "text" : "Winter squash preparation",
+        "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/WinterSquash4.jpg?alt=media&token=9a0a2410-ba1d-446e-bc70-65053c4190bb"
+      } ],
+      "name" : "Winter Squash",
+      "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/WinterSquash1.jpg?alt=media&token=1d2ec1cc-557a-4750-b55a-28da54e4bafe"
+    },
+    "-Kr7n2sKAABH1s5_dmx_" : {
+      "active" : true,
+      "images" : {
+        "-Kr7nEcdjEISIkwJtaHR" : {
+          "text" : "EDUCATOR SAYS: Have you tried infused water before? Infused water is a great way to stay hydrate and avoid sugary beverages. Sugary beverages like soda, fruit drinks, energy drinks, and sweetened milk/coffee/tea are the number source of added sugar. They have been linked to obesity, diabetes and heart disease. \nHere is an infused water recipe. You can be creative and use any vegetable or fruit you like and receive here today. You can use a pitcher and keep it in the fridge. It is easy and convenient. Store the infused water in the fridge for up to 3 days.",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=d524d599-4502-4295-b264-5c9ac26967d0"
+        },
+        "-Kr7nzGhQJEZi1JPvL4y" : {
+          "text" : "",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=770de467-d5c9-4c45-a0a0-11e9cedc1ef9"
+        }
+      },
+      "name" : "No to Sugar, Yes to infused water",
+      "sitesDeployed" : {
+        "-KrXb5i8Z7vudnyQw7_w" : {
+          "name" : "Mayfair Golden Manor",
+          "nutritionSiteID" : "-KrXb5i1yDuQCdGfOi3s",
+          "siteID" : "16"
+        }
+      },
+      "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=78c3460c-8d77-4a91-a89b-1ab58752431a"
+    },
+    "-Kr7q7oDrSpq0ot-3Rta" : {
+      "images" : {
+        "-Kr7qnfwSTY4IjptcRaa" : {
+          "text" : "EDUCATORS: Do you like watermelon? Do you know you can eat it in your salad as well? It is really with good cheese with feta cheese or queso fresco. You can add apples as well. Here are some ideas on how you can eat your watermelon!",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=7eb64c6e-e1a8-4e21-9495-87a138dc04ec"
+        },
+        "-Kr7rcKhdgJhqymB5vU6" : {
+          "text" : "Educator says: Watermelon is also a great snack! Make sure to pack some chopped watermelon and bring with you so you can eat during the day when you feel hungry. You will eat healthier and save money!",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=391173e5-906b-4c79-bd9e-373799d05d91"
+        }
+      },
+      "name" : "Watermelon",
+      "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=5918b61a-42a5-4e35-8ef0-51960824fc52"
+    },
+    "-KrXfWLj1XOpXd72Q9yl" : {
+      "active" : false,
+      "images" : {
+        "-KrXfaVRkbIKZwXRCjH3" : {
+          "text" : "EDUCATOR: You will be getting brown rice today. Have you cooked with brown rice before? Do you know the difference between brown rice and white rice? Brown rice has more fiber than white rice since it is a whole grain. It is very good for the digestive and immune system. It also keeps you full for longer and may help you maintain a healthy weight. Replacing white rice with brown rice may lower diabetes risk. Here is a recipe you can use at home. This is a good recipe since you will notice you don’t need to add so much water and cook it for so long, as people usually think.",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=dd5da602-30e5-4b7d-8ba5-d89161ae7ff7"
+        },
+        "-KrXfeKE_UCuJnZOUA1G" : {
+          "text" : "",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=a696cb44-5a57-4ce9-8af3-1cb4efbeb08c"
+        }
+      },
+      "name" : "Brown Rice",
+      "sitesDeployed" : {
+        "-KrXfm_8sDPscPSqLygk" : {
+          "name" : "Cambrian Center",
+          "nutritionSiteID" : "-KrXfm_2pJPRBT0Y_4Pu",
+          "siteID" : "2"
+        },
+        "-KrXfpNvMtBSO4n7V8VV" : {
+          "name" : "St Elizabeth Church",
+          "nutritionSiteID" : "-KrXfpNqeFDxnyCeyIs7",
+          "siteID" : "20"
+        },
+        "-KrbA0NEqbPCbD-VFlyU" : {
+          "name" : "Advent Lutheran Church",
+          "nutritionSiteID" : "-KrbA0NA4zyfrzayxPBM",
+          "siteID" : "0"
+        },
+        "-KrbA15rTFUdF81CMO3X" : {
+          "name" : "Cambrian Center",
+          "nutritionSiteID" : "-KrbA15ny-iMEXwuJMMD",
+          "siteID" : "2"
+        },
+        "-KrbA1tjeOe5BV3UK6CH" : {
+          "name" : "Campbell United Methodist (Thursday)",
+          "nutritionSiteID" : "-KrbA1tgQ4Tw9hSNnCuf",
+          "siteID" : "3"
+        },
+        "-KrbA2nXTF3cN-EAYx_x" : {
+          "name" : "Catholic Charities - Eastside Center",
+          "nutritionSiteID" : "-KrbA2nT6MLkIJamZT2D",
+          "siteID" : "8"
+        }
+      },
+      "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=98118d0c-0d4b-4c6a-a95a-998961e60228"
+    },
+    "-KrXgenAkVt4JCOYBjyf" : {
+      "images" : {
+        "-KrXgxUOLZ0IG5PNPoxV" : {
+          "text" : "EDUCATOR SAYS: Have you tried infused water before? Infused water is a great way to stay hydrate and avoid sugary beverages. Sugary beverages like soda, fruit drinks, energy drinks, and sweetened milk/coffee/tea are the number source of added sugar. They have been linked to obesity, diabetes and heart disease. \nYou can be creative and use any vegetable or fruit you like and receive here today. You can use a pitcher and keep it in the fridge. It is easy and convenient. Store the infused water in the fridge for up to 3 days.",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=c4f09820-a382-44e3-a6a2-751cc8a0546c"
+        },
+        "-KrXh-n2KrJUz2qHC0Jf" : {
+          "text" : "",
+          "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=df2db98a-357e-43ca-abaa-60fa711469ae"
+        }
+      },
+      "name" : "No to soda, yes to infused water",
+      "url" : "https://firebasestorage.googleapis.com/v0/b/feedforward-4cade.appspot.com/o/images%2Fdecks?alt=media&token=244a27e8-de66-4a6b-91d8-c4576d39d0f4"
+    }
+  },
+  "permanentInfo" : {
+    "-KqtYy_-S-RD5n56kUsR" : {
+      "sections" : {
+        "-KqtZ1w3-VNaIuZ1l2vC" : {
+          "header" : "Sugar",
+          "text" : "Sugar is bad"
+        }
+      },
+      "title" : "Test"
+    },
+    "103912aasdf" : {
+      "sections" : {
+        "ase839sa" : {
+          "header" : "History",
+          "text" : "MyPlate is the current nutrition guide published by the United States Department of Agriculture, a food circle (i.e. a pie chart) depicting a place setting with a plate and glass divided into five food groups. It replaced the USDA's MyPyramid guide on June 2, 2011, ending 19 years of USDA food pyramid diagrams. MyPlate will be displayed on food packaging and used in nutrition education in the United States."
+        },
+        "z9aw39as" : {
+          "header" : "Recommended Nutrition",
+          "text" : "MyPlate is divided into four sections of approximately 30 percent grains, 40 percent vegetables, 10 percent fruits and 20 percent protein, accompanied by a smaller circle representing dairy, such as a glass of milk or a yogurt cup."
+        },
+        "z9aw39ast" : {
+          "header" : "MyPlate for Seniors",
+          "text" : "Seniors still need fruits and veggies, but frequently must also be more careful about sodium intake, getting enough calcium, and medication interactions."
+        }
+      },
+      "title" : "MyPlate"
+    },
+    "920930da" : {
+      "sections" : {
+        "399dasd" : {
+          "header" : "Language",
+          "text" : "Sometimes just saying hello goes a long way. Here's 'hello' in a few languages!\nSpanish: Hola\nVietnamese: chào bạn\nChinese: Nǐ hǎo\nHindi: namaste\nUrdu/Arabic: āssālam 'alaykum"
+        },
+        "88sa8d" : {
+          "header" : "Approaching Clients",
+          "text" : "Try opening with a compliment and a smile! Don't be intrusive, but do ask if they're excited to go back and cook the food. Try trading recipes!"
+        }
+      },
+      "title" : "Interacting with Clients"
+    }
+  },
+  "sites" : [ {
+    "address" : "16870 Murphy Ave Morgan Hill 95037",
+    "currNutrition" : {
+      "-Kr7lZAU48LDNEL9Rl-0" : {
+        "id" : "-Kr7hyrLKYNBM7AC5JpH"
+      },
+      "-KrbA0NA4zyfrzayxPBM" : {
+        "id" : "-KrXfWLj1XOpXd72Q9yl"
+      }
+    },
+    "feedbackObj" : "0",
+    "languages" : [ "English", " Spanish" ],
+    "memberCount" : 110,
+    "name" : "Advent Lutheran Church",
+    "time" : "7:30-9AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "520 W. Virginia St. San Jose CA 95125",
+    "currNutrition" : {
+      "-KqtJFmPG0w1vFs7PuN4" : {
+        "id" : "0"
+      },
+      "-KqtKCswvU5CdnD6dRHZ" : {
+        "id" : "1"
+      },
+      "-KqtiCiVN9Rxz_9mDW38" : {
+        "id" : "0"
+      }
+    },
+    "feedbackObj" : "1",
+    "languages" : [ "English", " Vietnamese", " Spanish", " Mandarin" ],
+    "memberCount" : 155,
+    "name" : "Garder Community Center",
+    "time" : "7-9AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "2360 Samaritan Place San Jose 95124",
+    "currNutrition" : {
+      "-KqtdDAvt-wI4oPyl_Cm" : {
+        "id" : "0"
+      },
+      "-KqtiCHISnTjQUAFzUvN" : {
+        "id" : "0"
+      },
+      "-KrXfm_2pJPRBT0Y_4Pu" : {
+        "id" : "-KrXfWLj1XOpXd72Q9yl"
+      },
+      "-KrbA15ny-iMEXwuJMMD" : {
+        "id" : "-KrXfWLj1XOpXd72Q9yl"
+      }
+    },
+    "feedbackObj" : "2",
+    "languages" : [ "English", " Mandarin", " Korean", " Farsi" ],
+    "memberCount" : 165,
+    "name" : "Cambrian Center",
+    "time" : "8:30-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "1675 Winchester Blvd Campbell 95008",
+    "currNutrition" : {
+      "-KrbA1tgQ4Tw9hSNnCuf" : {
+        "id" : "-KrXfWLj1XOpXd72Q9yl"
+      }
+    },
+    "feedbackObj" : "3",
+    "languages" : [ "Mandarin", " Russian", " Korean", " English" ],
+    "memberCount" : 270,
+    "name" : "Campbell United Methodist (Thursday)",
+    "time" : "8:15-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "1675 Winchester Blvd Campbell 95008",
+    "currNutrition" : {
+      "-KqthJygt9YWy7ZVwxOP" : {
+        "id" : "0"
+      }
+    },
+    "feedbackObj" : "4",
+    "languages" : [ "English", " Russian", " Mandarin", " Vietnamese" ],
+    "memberCount" : 175,
+    "name" : "Campbell United Methodist (Friday)",
+    "time" : "8:15-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "241 S Main Street Milpitas 95035",
+    "currNutrition" : {
+      "-KqtqFq22h1korMaKQng" : {
+        "id" : "0"
+      }
+    },
+    "feedbackObj" : "5",
+    "languages" : [ "Vietnamese", " Mandarin", " Tagalog" ],
+    "memberCount" : 300,
+    "name" : "Christian Worship",
+    "time" : "7-9AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "20900 Stevens Creek Blvd Cupertino 95014",
+    "feedbackObj" : "6",
+    "languages" : [ "Mandarin", " Russian", " English" ],
+    "memberCount" : 140,
+    "name" : "Cupertino Union Church",
+    "time" : "8:30-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "403 S Cypress Ave San Jose 95117",
+    "feedbackObj" : "7",
+    "languages" : [ "Mandarin", " English", " Korean" ],
+    "memberCount" : 195,
+    "name" : "Cypress Senior Center",
+    "time" : "8:30-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "2150 Alum Rock Ave San Jose 95116",
+    "currNutrition" : {
+      "-KrbA2nT6MLkIJamZT2D" : {
+        "id" : "-KrXfWLj1XOpXd72Q9yl"
+      }
+    },
+    "feedbackObj" : "8",
+    "languages" : [ "Vietnamese", " Mandarin", " Tagalog", " Spanish" ],
+    "memberCount" : 280,
+    "name" : "Catholic Charities - Eastside Center",
+    "time" : "8-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "14520 Fruitvale Ave Saratoga 95070",
+    "currNutrition" : {
+      "-KqtaA81GA7gn352LY_b" : {
+        "id" : "0"
+      }
+    },
+    "feedbackObj" : "9",
+    "languages" : [ "Mandarin", " Russian", " English", " Korean" ],
+    "memberCount" : 125,
+    "name" : "Fellowship Plaza",
+    "time" : "8:30-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "7371 Hanna St Gilroy 95020",
+    "feedbackObj" : "10",
+    "languages" : [ "English", " Spanish" ],
+    "memberCount" : 270,
+    "name" : "Gilroy Senior Center",
+    "time" : "8:30-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "1710 Alum Rock Ave San Jose 95116",
+    "feedbackObj" : "11",
+    "languages" : [ "Vietnamese", " Tagalog", " Spanish" ],
+    "memberCount" : 135,
+    "name" : "Girasol Senior Apartments",
+    "time" : "8-9:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "121 S White Rd San Jose 95127",
+    "feedbackObj" : "12",
+    "languages" : [ "Vietnamese", " English" ],
+    "memberCount" : 385,
+    "name" : "Gloria Dei",
+    "time" : "8-10:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "195 E San Fernando St San Jose 95112",
+    "feedbackObj" : "13",
+    "languages" : [ "Vietnamese", " Mandarin" ],
+    "memberCount" : 260,
+    "name" : "John XXIII Senior Center",
+    "time" : "8:30-10:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "208 E Main Street Los Gatos 95030",
+    "feedbackObj" : "14",
+    "languages" : [ "English", " Russian", " Mandarin" ],
+    "memberCount" : 100,
+    "name" : "Los Gatos - Villa Vasona",
+    "time" : "7:30-9:30",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "2039 Kammerer Ave San Jose 95116",
+    "feedbackObj" : "15",
+    "languages" : [ "Vietnamese", " Spanish", " English" ],
+    "memberCount" : 200,
+    "name" : "Mayfair Community Center",
+    "time" : "9-10:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "2627 Madden Ave San Jose 95116",
+    "currNutrition" : {
+      "-KrXb5i1yDuQCdGfOi3s" : {
+        "id" : "-Kr7n2sKAABH1s5_dmx_"
+      }
+    },
+    "feedbackObj" : "16",
+    "languages" : [ "Mandarin", " Korean", " Spanish", " English" ],
+    "memberCount" : 160,
+    "name" : "Mayfair Golden Manor",
+    "time" : "8-9:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "266 Escuela Ave Mountain View 94040",
+    "feedbackObj" : "17",
+    "languages" : [ "Russian", " Mandarin", " English" ],
+    "memberCount" : 300,
+    "name" : "Mountain View Senior Center",
+    "time" : "8:30-10:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "266 Escuela Ave Mountain View 94040",
+    "feedbackObj" : "18",
+    "languages" : [ "Russian", " Mandarin", " English" ],
+    "memberCount" : 150,
+    "name" : "Mountain View Senior Center (2)",
+    "time" : "8:30-10:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "2020 E San Antonio San Jose 95116",
+    "feedbackObj" : "19",
+    "languages" : [ "Vietnamese", " English", " Mandarin", " Spanish" ],
+    "memberCount" : 250,
+    "name" : "Our Lady of Guadalupe Catholic Church",
+    "time" : "7:30-9:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "750 Sequoia Dr Milpitas 95035",
+    "currNutrition" : {
+      "-KrXfpNqeFDxnyCeyIs7" : {
+        "id" : "-KrXfWLj1XOpXd72Q9yl"
+      }
+    },
+    "feedbackObj" : "20",
+    "languages" : [ "Vietnamese", " Mandarin", " English", " Tagalog" ],
+    "memberCount" : 300,
+    "name" : "St Elizabeth Church",
+    "time" : "8:30-10:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "1115 E Santa Clara St Suite A San Jose 95116",
+    "feedbackObj" : "21",
+    "languages" : [ "Vietnamese", " English", " Portuguese" ],
+    "memberCount" : 95,
+    "name" : "Portuguese Community Center",
+    "time" : "8:30-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "311 Willow St San Jose 95110",
+    "feedbackObj" : "22",
+    "languages" : [ "English", " Spanish", " Farsi" ],
+    "memberCount" : 90,
+    "name" : "Sacred Heart Church",
+    "time" : "7:30-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "3590 Cas Drive San Jose 95111",
+    "currNutrition" : {
+      "-KqtaAu-Kxp-PCl5D241" : {
+        "id" : "0"
+      }
+    },
+    "feedbackObj" : "23",
+    "languages" : [ "Vietnamese", " English", " Mandarin" ],
+    "memberCount" : 145,
+    "name" : "Seven Trees Community Center",
+    "time" : "8-9:45AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "5585 Cottle Rd Room #9 San Jose 95123",
+    "feedbackObj" : "24",
+    "languages" : [ "English", " Vietnamese" ],
+    "memberCount" : 455,
+    "name" : "Southside Senior Center",
+    "time" : "8:30-11AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "941 Lexington St Santa Clara 95050",
+    "feedbackObj" : "25",
+    "languages" : [ "English", " Korean", " Mandarin", " Vietnamese" ],
+    "memberCount" : 200,
+    "name" : "St. Clare Parish",
+    "time" : "6:30-9AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "581 E Fremont Blvd Sunnyvale 94087",
+    "feedbackObj" : "26",
+    "languages" : [ "Mandarin", " English", " Vietnamese" ],
+    "memberCount" : 275,
+    "name" : "St. John's  Lutheran Church",
+    "time" : "7:30-10AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "2980 Senter Rd San Jose 95111",
+    "feedbackObj" : "27",
+    "languages" : [ "Vietnamese", " English", " Spanish" ],
+    "memberCount" : 380,
+    "name" : "St. Maria Goretti Church",
+    "time" : "7-9AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "477 N. Mathilda Ave Sunnyvale",
+    "feedbackObj" : "28",
+    "languages" : [ "Mandarin", " English", " Vietnamese" ],
+    "memberCount" : 200,
+    "name" : "Trinity Church of Sunnyvale",
+    "time" : "6:45-8:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "81 N Second St San Jose 95113",
+    "feedbackObj" : "29",
+    "languages" : [ "Mandarin", " English", " Vietnamese" ],
+    "memberCount" : 235,
+    "name" : "Trinity Episcopal  Cathedral",
+    "time" : "6:30-8:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "1100 Shasta Ave San Jose 95126",
+    "feedbackObj" : "30",
+    "languages" : [ "Mandarin", " English", " Vietnamese", " Korean", " Russian" ],
+    "memberCount" : 160,
+    "name" : "Westminster Presbyterian Church",
+    "time" : "7:30-9:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "1420 Newport Ave San Jose 95125",
+    "feedbackObj" : "31",
+    "languages" : [ "English", " Russian", " Farsi" ],
+    "memberCount" : 110,
+    "name" : "Willow Glen UMC",
+    "time" : "8-10:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "640 N Fifth St San Jose 95112",
+    "feedbackObj" : "32",
+    "languages" : [ "Mandarin", " Vietnamese", " Tagalog", " English" ],
+    "memberCount" : 165,
+    "name" : "Yu-Ai-Kai",
+    "time" : "9-10:30AM",
+    "type" : "Brown Bag"
+  }, {
+    "address" : "Hillside Church 545 Hillsdale Ave San Jose 95136",
+    "feedbackObj" : "33",
+    "languages" : [ "Spanish", " English", " Vietnamese" ],
+    "memberCount" : 130,
+    "name" : "Farm Drive Neighborhood Center",
+    "time" : "2-30-4:30PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "281 N 33rd St San Jose 95116",
+    "feedbackObj" : "34",
+    "languages" : [ "Spanish", " Vietnamese" ],
+    "memberCount" : 145,
+    "name" : "Seventh Day Adventist Church",
+    "time" : "9-30-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "285 Azucar Ave San Jose 95111",
+    "feedbackObj" : "35",
+    "languages" : [ "Spanish", " Vietnamese" ],
+    "memberCount" : 130,
+    "name" : "Edenvale Elementary School",
+    "time" : "3-4:30PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "3411 Rocky Mountain Dr San Jose 95127",
+    "currNutrition" : {
+      "-Kr7lvPBvkd689czLR4a" : {
+        "id" : "-Kr7hyrLKYNBM7AC5JpH"
+      }
+    },
+    "feedbackObj" : "36",
+    "languages" : [ "Spanish", " English" ],
+    "memberCount" : 155,
+    "name" : "Robert Sanders Elementary School",
+    "time" : "9-30-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "651 Macredes Ave San Jose 95116",
+    "feedbackObj" : "37",
+    "languages" : [ "Spanish" ],
+    "memberCount" : 100,
+    "name" : "McKinley Elementary School",
+    "time" : "2:30-4PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "3095 Yerba Buena Rd San Jose 95135",
+    "feedbackObj" : "38",
+    "languages" : [ "Vietnamese", " Spanish", " English" ],
+    "memberCount" : 95,
+    "name" : "Evergreen Valley College",
+    "time" : "9-30-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "1149 E Julian St San Jose 95116",
+    "feedbackObj" : "39",
+    "languages" : [ "Spanish", " English", " Vietnamese" ],
+    "memberCount" : 115,
+    "name" : "Healthy Start Early Learning Center",
+    "time" : "2:30-4:30PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "921 S First St San Jose 95110",
+    "feedbackObj" : "40",
+    "languages" : [ "Spanish", " English" ],
+    "memberCount" : 125,
+    "name" : "Washington United Youth Center 1",
+    "time" : "9:30-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "17000 Monterey Rd Morgan Hill 95037",
+    "feedbackObj" : "41",
+    "languages" : [ "Spanish", " English" ],
+    "memberCount" : 125,
+    "name" : "Morgan Hill Community and Cultural Center",
+    "time" : "11-1PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "1295 Dentwood Dr San Jose 95118",
+    "feedbackObj" : "42",
+    "languages" : [ "Spanish", " English" ],
+    "memberCount" : 95,
+    "name" : "Almaden Elementary School",
+    "time" : "4-5:30PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "1392 Grand Blvd Alviso 95002",
+    "feedbackObj" : "43",
+    "languages" : [ "Spanish", " English" ],
+    "memberCount" : 105,
+    "name" : "Our Lady Star of the Sea Church",
+    "time" : "12:30-2:30PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "1675 Winchester Blvd Campbell 95008",
+    "feedbackObj" : "44",
+    "languages" : [ "Spanish", " English" ],
+    "memberCount" : 175,
+    "name" : "Campbell United Methodist Church",
+    "time" : "2-4PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "2025 Clarice Dr San Jose 95122",
+    "feedbackObj" : "45",
+    "languages" : [ "Vietnamese", " Spanish", " English" ],
+    "memberCount" : 110,
+    "name" : "Katherine R. Smith Elementary School",
+    "time" : "2-4PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "2715 S White Rd San Jose 95148",
+    "feedbackObj" : "46",
+    "languages" : [ "Spanish", " Vietnamese" ],
+    "memberCount" : 135,
+    "name" : "East Valley Pentecostal Church",
+    "time" : "2:30-4:30PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "1080 N 7th St San Jose 95112",
+    "feedbackObj" : "47",
+    "languages" : [ "Spanish", " English", " Vietnamese" ],
+    "memberCount" : 105,
+    "name" : "Goodwill of Silicon Valley",
+    "time" : "9:30-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "Sherman Oaks School 1800-C Fruitdale Ave San Jose 95128",
+    "feedbackObj" : "48",
+    "languages" : [ "Spanish", " English" ],
+    "memberCount" : 145,
+    "name" : "Sherman Oaks Community Center",
+    "time" : "3-4:30PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "2980 Senter Rd San Jose 95111",
+    "feedbackObj" : "49",
+    "languages" : [ "Spanish", " Vietnamese" ],
+    "memberCount" : 175,
+    "name" : "St Maria Goretti Church",
+    "time" : "9:30-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "1694 Adrian Way San Jose 95122",
+    "feedbackObj" : "50",
+    "languages" : [ "Spanish" ],
+    "memberCount" : 130,
+    "name" : "Hank Lopez Community Center",
+    "time" : "10-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "342 Sierra Vista Ave Mountain View 94043",
+    "feedbackObj" : "51",
+    "languages" : [ "Spanish", " English" ],
+    "memberCount" : 135,
+    "name" : "Mountain View Hispanic Seventh-day Adventist Church",
+    "time" : "11:30-1:30PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "1775 McLaughlin Ave San Jose 95122",
+    "feedbackObj" : "52",
+    "languages" : [ "Vietnamese", " Spanish", " English" ],
+    "memberCount" : 100,
+    "name" : "New Beginnings Pentecostal Church of God",
+    "time" : "2:30-4:30PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "1898 Senter Rd #10 San Jose 95112",
+    "feedbackObj" : "53",
+    "languages" : [ "Spanish", " Vietnamese" ],
+    "memberCount" : 140,
+    "name" : "Paseo Senter at Coyote Creek",
+    "time" : "9:30-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "470 E Jackson St San Jose 95112",
+    "feedbackObj" : "54",
+    "languages" : [ "Spanish", " Vietnamese", " English" ],
+    "memberCount" : 80,
+    "name" : "Grant Elementary School",
+    "time" : "2:30-4:30PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "570 Keyes St #2 San Jose 95112",
+    "feedbackObj" : "55",
+    "languages" : [ "Vietnamese", " Spanish", " English" ],
+    "memberCount" : 85,
+    "name" : "Spartan Keyes Neighborhood Action Center",
+    "time" : "2:30-4PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "2040 Nassau Dr San Jose 95122",
+    "feedbackObj" : "56",
+    "languages" : [ "Spanish", " Vietnamese" ],
+    "memberCount" : 155,
+    "name" : "Most Holy Trinity Catholic Church",
+    "time" : "9:30-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "785 Morse Ave Sunnyvale 94085",
+    "feedbackObj" : "57",
+    "languages" : [ "Spanish", " English", " Vietnamese" ],
+    "memberCount" : 130,
+    "name" : "Columbia Neighborhood Center",
+    "time" : "2:30-4PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "9005 Kern Ave Gilroy 95020",
+    "feedbackObj" : "58",
+    "languages" : [ "Spanish" ],
+    "memberCount" : 85,
+    "name" : "Redwoods Apartments",
+    "time" : "2-4PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "290 Ioof Ave Gilroy 95020",
+    "feedbackObj" : "59",
+    "languages" : [ "Spanish", " English" ],
+    "memberCount" : 130,
+    "name" : "Rebekah Children’s Services",
+    "time" : "2-4PM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "149 N White Rd San Jose 95127",
+    "feedbackObj" : "60",
+    "languages" : [ "Spanish", " Vietnamese", " English" ],
+    "memberCount" : 180,
+    "name" : "Escuela Popular",
+    "time" : "9:30-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "921 S First St San Jose 95110",
+    "feedbackObj" : "61",
+    "languages" : [ "Spanish", " Vietnamese", " English" ],
+    "memberCount" : 115,
+    "name" : "Washington United Youth Center 2",
+    "time" : "9:30-11:30AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "Sal Cracolice Community Center 791 Garden St. Milpitas 95035",
+    "feedbackObj" : "62",
+    "languages" : [ "Spanish", " Vietnamese", " English", " Tagalog" ],
+    "memberCount" : 175,
+    "name" : "Sal Cracolice Community Center",
+    "time" : "9-11AM",
+    "type" : "Family Harvest"
+  }, {
+    "address" : "4955 Edenview Drive. San Jose CA 95111",
+    "feedbackObj" : "63",
+    "languages" : [ "NA" ],
+    "memberCount" : 100,
+    "name" : "Boys & Girls Club of SV – Levin Clubhouse",
+    "time" : "2:30-6PM",
+    "type" : "KidsNow"
+  }, {
+    "address" : "2962 Story Road. San Jose CA 95110",
+    "feedbackObj" : "64",
+    "languages" : [ "NA" ],
+    "memberCount" : 50,
+    "name" : "Rocketship Mateo Sheedy YMCA",
+    "time" : "2:30-6PM",
+    "type" : "KidsNow"
+  }, {
+    "address" : "2195 Cunningham Avenue. San Jose CA 95122",
+    "feedbackObj" : "65",
+    "languages" : [ "NA" ],
+    "memberCount" : 100,
+    "name" : "Boys & Girls Clubs of SV",
+    "time" : "2:30-6PM",
+    "type" : "KidsNow"
+  }, {
+    "address" : "1925 Scott Blvd. Santa Clara CA 95050",
+    "feedbackObj" : "66",
+    "languages" : [ "NA" ],
+    "memberCount" : 290,
+    "name" : "Scott Lane Elementary School",
+    "time" : "2:30-6PM",
+    "type" : "KidsNow"
+  }, {
+    "address" : "750 Laurie Ave. Santa Clara Ca 95054",
+    "feedbackObj" : "67",
+    "languages" : [ "NA" ],
+    "memberCount" : 160,
+    "name" : "Montague Elementary School YMCA",
+    "time" : "2:30-6PM",
+    "type" : "KidsNow"
+  } ]
+}

@@ -1,9 +1,15 @@
 <md-content layout-padding flex id="content">
 	<h1 class="md-display-2">{{nutrition.name}}</h1>
-	
+
 	<h2 class="md-headline">Active Sites</h2>
-	<p ng-show="nutritionSites.length === 0">This deck has not been deployed to a specific site yet.</p>
-	<md-content class="md-padding" layout="column" ng-show="nutritionSites.length > 0">
+	<div ng-show="!isActiveNutrition && isActiveNutrition != null">
+		<p ng-show="nutritionSites.length === 0">This deck has not been deployed to a specific site yet.</p>
+	</div>
+	<div ng-show="isActiveNutrition">
+		<p><b>This nutrition deck is currently active at all sites.</b> (To deploy to a specific site, please remove it from the list of active decks.)</p>
+	</div>
+	<!-- <pre>{{nutritionSites || json}} </pre> -->
+	<md-content class="md-padding" layout="column">
 		<md-chips ng-model="nutritionSites" readonly="true" md-removable="true" md-on-remove="removeActive($chip)">
 			<md-chip-template>
 				{{$chip.name}}
@@ -18,7 +24,7 @@
 				<md-option ng-repeat="site in sites" ng-value="site">{{site.name}}</md-option>
 			</md-select>
 		</md-input-container>
-		<md-button class="md-raised md-primary" ng-click="assignToNewSite()">Send New Site</md-button>
+		<md-button class="md-raised md-primary" ng-click="assignToNewSite()" ng-disabled="isActiveNutrition">Send New Site</md-button>
 	</form>
 
 	<h2 class="md-display-1">Deck Images</h2>

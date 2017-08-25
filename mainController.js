@@ -1,42 +1,46 @@
 'use strict';
 
-app.controller('MainController', ['$scope', '$resource', '$rootScope', '$location', '$http', 'Surveys', 'Sites',
-    function ($scope, $resource, $rootScope, $location, $http, Surveys, Sites) {
+app.controller('MainController', ['$scope', '$resource', '$rootScope', '$location', '$http', 'Surveys', 'Sites', 'Auth',
+    function ($scope, $resource, $rootScope, $location, $http, Surveys, Sites, Auth) {
 		$scope.main = {};
-		$scope.main.loggedIn = true; // TESTING
+		$scope.main.loggedIn = false; // TESTING
 		$scope.main.title = 'Users';
 		$scope.main.checkedLogIn = false;
-		var TestInfo = $resource('test/info');
 		var Logout = $resource('admin/logout');
 		var AuthStatus = $resource('user/loggedin');
 		var Activity = $resource('registerActivity');
 
 		$rootScope.$on("$routeChangeStart", function (event, next, current) {
-			if (!$scope.main.checkedLogIn) {
-				AuthStatus.get(function (success) {
-					$scope.main.checkedLogIn = true;
-					if (success.notLoggedIn) {
-						// no logged user, redirect to /login-register unless already there
-						if (next.templateUrl !== "components/login-register/login-registerTemplate.html") {
-							$location.path("/login-register");
-						}
-					} else {
-						$scope.main.user = success;
-						$scope.main.loggedIn = true;
-					}
-				});
-			} else {
-				if (!$scope.main.loggedIn) {
-					// no logged user, redirect to /login-register unless already there
-					if (next.templateUrl !== "components/login-register/login-registerTemplate.html") {
-						$location.path("/login-register");
-					}
-				}
-			}
+      Auth.$onAuthStateChanged(function(authData) {
+        if (authData) {
+          $scope.main.loggedIn = true;
+        } else {
+          $location.path('/login');
+          $scope.main.loggedIn = false;
+        }
+      });
+			// if (!$scope.main.checkedLogIn) {
+      //   var authobj = Auth;
+      //   console.log(authobj.$getAuth());
+      //   if (Auth.$getAuth()) {
+      //     $scope.main.loggedIn = true;
+      //   } else {
+      //     $location.path('/login');
+      //     $scope.main.loggedIn = false;
+      //   }
+			// } else {
+			// 	if (!$scope.main.loggedIn) {
+			// 		// no logged user, redirect to /login-register unless already there
+			// 		if (next.templateUrl !== "components/auth/authTemplate.html") {
+      //       $scope.main.checkedLogIn = true;
+			// 			$location.path("/login");
+			// 		}
+			// 	}
+			// }
 		});
 
-		$rootScope.$on('$routeChangeSuccess', function (event, current) {
-			if(current.$$route.originalPath.includes("nutrition")) {
+		$rootScope.$on('$routeChangeSuccess', function (event, current, from) {
+			if(!(current.$$route && current.$$route.originalPath) || current.$$route.originalPath.includes("nutrition")) {
 				$scope.currentNavItem = "nutritionlist";
 			} else if (current.$$route.originalPath.includes("feedback")){
 				$scope.currentNavItem = "feedback";
@@ -47,17 +51,12 @@ app.controller('MainController', ['$scope', '$resource', '$rootScope', '$locatio
 			}
 		});
 
+
 		$scope.logout = function () {
-			Activity.save({
-				"action": "logged out"
-			}, function () {
-				$rootScope.$broadcast("NewActivity");
-			});
-			Logout.save({}, function (success) {
-				$scope.main.loggedIn = false;
-				$scope.main.user = {};
-				$location.path('/login-register');
-			});
+      Auth.$signOut();
+      $scope.main.loggedIn = false;
+      $scope.main.checkedLogIn = true;
+      $location.path("/login");
 		};
 
 }]);
