@@ -22,7 +22,7 @@ app.controller('NutritionDetailController', ['$scope', '$resource', '$routeParam
 
     Nutrition.detectActiveNutrition(nutritionID, function(bool){
       $scope.isActiveNutrition = bool;
-      console.log($scope.isActiveNutrition);
+      // console.log($scope.isActiveNutrition);
     }); // sets isActiveNutrition
 
 		$scope.images = Nutrition.getImagesById(nutritionID);

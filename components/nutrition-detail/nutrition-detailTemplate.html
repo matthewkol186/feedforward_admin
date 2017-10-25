@@ -19,9 +19,9 @@
 	<h3 class="md-title">Send Nutrition Deck to Site</h3>
 	<form>
 		<md-input-container>
-			<label>Select a site</label>
+			<label>Select a deck</label>
 			<md-select ng-model="assignSite.new">
-				<md-option ng-repeat="site in sites" ng-value="site">{{site.name}}</md-option>
+				<md-option ng-repeat="site in sites | orderBy: 'name'" ng-value="site">{{site.name}}</md-option>
 			</md-select>
 		</md-input-container>
 		<md-button class="md-raised md-primary" ng-click="assignToNewSite()" ng-disabled="isActiveNutrition">Send New Site</md-button>

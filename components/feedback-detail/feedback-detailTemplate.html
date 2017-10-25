@@ -1,14 +1,14 @@
 <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2" ng-if="main.loggedIn">
 	<md-content layout-padding>
 		<h3 class="md-title">Site Selection</h3>
+		<md-list flex>
+			<md-list-item class="md-1-line" ng-repeat="site in sites | orderBy: 'name' track by $index" ng-click="selectSite(site)">
+				<div class="md-list-item-text">
+					<p>{{ site.name }}</p>
+				</div>
+			</md-list-item>
+		</md-list>
 	</md-content>
-	<md-list flex>
-		<md-list-item class="md-1-line" ng-repeat="site in sites | orderBy: 'name' track by $index" ng-click="selectSite(site)">
-			<div class="md-list-item-text">
-				<p>{{ site.name }}</p>
-			</div>
-		</md-list-item>
-	</md-list>
 </md-sidenav>
 
 <md-content layout-padding flex id="content">
@@ -28,6 +28,26 @@
 				<p>{{comment}}</p>
 			</md-card-content>
 		</md-card>
+
+		<h2 class="md-display-1">Deployed Decks</h2>
+		<md-content layout="column">
+			<md-chips ng-model="deployedDecks" readonly="true" md-removable="false">
+				<md-chip-template>
+					{{$chip.name}}
+				</md-chip-template>
+			</md-chips>
+			<p ng-show="deployedDecks.length === 0"> There are no decks deployed specifically to this site.</p>
+		</md-content>
+		<h3 class="md-title">Send Nutrition Deck to Site</h3>
+		<form>
+			<md-input-container>
+				<label>Select a deck</label>
+				<md-select ng-model="assignDeck.new">
+					<md-option ng-repeat="nutrition in nutritions | orderBy: 'name'" ng-value="nutrition">{{nutrition.name}}</md-option>
+				</md-select>
+			</md-input-container>
+			<md-button class="md-raised md-primary" ng-click="assignNewDeck()" ng-disabled="isActiveNutrition">Assign Deck</md-button>
+		</form>
 
 		<h2 class="md-display-1">Nutrition Education Results</h2>
 		<md-content layout="row" layout-wrap>
